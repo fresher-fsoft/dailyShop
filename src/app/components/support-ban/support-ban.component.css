@@ -1,0 +1,41 @@
+/*==================
+ SUPPORT SECTION
+====================*/
+#aa-support .aa-support-area .aa-support-single {
+    margin-bottom: 30px;
+}
+
+#aa-support {
+    background-color: #333;
+    
+    float: left;
+    width: 100%;
+  }
+  #aa-support .aa-support-area {
+   
+    float: left;
+    padding: 50px 0;
+    width: 100%;
+  }
+  #aa-support .aa-support-area .aa-support-single {
+   
+    text-align: center;
+    padding: 0 10px;
+    float: left;
+    width: 100%;
+  }
+  #aa-support .aa-support-area .aa-support-single span {
+    font-size: 30px;
+    color: #ff6666;
+  }
+  #aa-support .aa-support-area .aa-support-single h4 {
+    color: #fff;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  #aa-support .aa-support-area .aa-support-single p {
+    color: #ccc;
+    font-size: 15px;
+    margin-bottom: 0;
+  }
