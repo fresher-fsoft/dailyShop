@@ -8,13 +8,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SupportBanComponent } from './components/support-ban/support-ban.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { SliderModule } from 'angular-image-slider';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     SupportBanComponent,
-    BrandComponent
+    BrandComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,
