@@ -64,3 +64,26 @@ img {
 .aa-browse-btn:focus {
   background-color: #fff;
 }
+
+.aa-secondary-btn {
+  background-color: #fff;
+  font-size: 16px;
+  padding: 10px 22px;
+  margin-top: 10px;
+  display: inline-block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms--border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  color: #ff6666;
+}
+.aa-secondary-btn:hover, .aa-secondary-btn:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff6666; 
+}

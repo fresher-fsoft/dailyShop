@@ -6,7 +6,6 @@
 
 #aa-slider .seq-title {
   bottom: 5%;
-  width: 95%;
   left: 50%;
   position: absolute;
   top: 30%;
@@ -26,75 +25,66 @@
   margin-bottom: 10px;
 }
 
+#aa-slider .seq-title h2 {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #333;
+  display: block;
+  font-size: 50px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
 
-@media (max-width: 1199px){
-  #aa-slider .seq-title h2 {
-    line-height: 50px;
-  }
+#aa-slider .seq-title p {
+  color: #fff;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+  width: auto;
+  margin-top: 20px;
+}
+
+#aa-slider .seq-title .aa-shop-now-btn {
+  margin-top: 20px;
 }
 
 @media (max-width: 991px){
   #aa-slider .seq-title {
-    left: 50%;
-    width: 80%;
-    margin-left: -40%;
+    top: 10%;
+    
+  }
+
+  #aa-slider .seq-title h2{
+    line-height: 60px;
+    font-size: 45px;
   }
 }
 
-@media only screen and (min-width: 640px){
+@media only screen and (max-width: 640px){
   #aa-slider .seq-title {
-    /*position: relative;*/
     display: inline-block;
-    /*vertical-align: middle;*/
-    /*margin: 0 5% 0 2.5%;*/
     bottom: 0;
     width: 40%;
     margin-left: -20%;
     left: 50%;
   }
 
-  #aa-slider .seq-title h2,
-  #aa-slider .seq-title p {
-    display: inline-block;
-    width: auto;
-    margin: 0;
-    opacity: 0;
-    text-align: left;
-    font-size: 18px;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    -webkit-transition-properties: transform, opacity;
-    transition-properties: transform, opacity;
-  }
-
-  #aa-slider .seq-title h2 {
-    margin-bottom: .4em;
-    padding: .2em .6em;
-    font-family: 'Oxygen', sans-serif;
-    color: white;
-    background: black;
-    -webkit-transform: translate3d(-120px, 0, 0);
-    -ms-transform: translate3d(-120px, 0, 0);
-    transform: translate3d(-120px, 0, 0);
-  }
-
-}
-
-@media (max-width: 480px){
-  #aa-slider .seq-title {
-    left: 50%;
-    top: 15%;
-    width: 90%;
-    margin-left: -45%;
-  }
-
-  #aa-slider .seq-title span {
-    font-size: 12px;
-  }
-
   #aa-slider .seq-title h2 {
     font-size: 25px;
     line-height: 30px;
     margin-top: 0;
+    padding: 5px 10px;
+  }
+
+}
+
+@media only screen and (max-width: 480px){
+  #aa-slider .seq-title, .carousel-control{
+    display: none;
   }
 }
+
