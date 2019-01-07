@@ -9,6 +9,7 @@ import { SupportBanComponent } from './components/support-ban/support-ban.compon
 import { BrandComponent } from './components/brand/brand.component';
 import { SliderModule } from 'angular-image-slider';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
     FooterComponent,
     SupportBanComponent,
     BrandComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
