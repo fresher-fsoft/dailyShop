@@ -44,6 +44,23 @@ img {
   border: none;
 }
 
+.aa-add-to-cart-btn {
+  border: 1px solid #ccc;
+  color: #555;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  transition: all 0.5s ease 0s;
+}
+.aa-add-to-cart-btn:hover, .aa-add-to-cart-btn:focus {
+  color: #ff6666;
+  border-color: #ff6666;
+}
+
 .aa-browse-btn {
   display: inline-block;
   font-size: 16px;
@@ -54,6 +71,8 @@ img {
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
+  background-color: #ff6666;  
+  border: 1px solid #ff6666;
 }
 
 .aa-browse-btn span {
@@ -63,6 +82,7 @@ img {
 .aa-browse-btn:hover,
 .aa-browse-btn:focus {
   background-color: #fff;
+  color: #ff6666;
 }
 
 .aa-secondary-btn {
@@ -86,4 +106,27 @@ img {
   text-decoration: none;
   color: #fff;
   background-color: #ff6666; 
+}
+
+.aa-cart-view-btn {
+  float: right;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #ff6666;
+}
+.aa-cart-view-btn:hover {
+  background-color: #000;
+  color: #fff;
 }
