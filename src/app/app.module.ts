@@ -11,6 +11,7 @@ import { SliderModule } from 'angular-image-slider';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { ProductComponent } from './components/product/product.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
