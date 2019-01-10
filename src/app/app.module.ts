@@ -1,31 +1,50 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SupportBanComponent } from './components/support-ban/support-ban.component';
-import { BrandComponent } from './components/brand/brand.component';
-import { SliderModule } from 'angular-image-slider';
+import { HeaderComponent } from './components/header/header.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { HomeComponent } from './components/home/home.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductDetailContentComponent } from './components/product-detail/product-detail-content/product-detail-content.component';
+import { ProductDetailBottomComponent } from './components/product-detail/product-detail-bottom/product-detail-bottom.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CartComponent } from './components/cart/cart.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AccountComponent } from './components/account/account.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ProductComponent } from './components/product/product.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    SupportBanComponent,
-    BrandComponent,
+    HeaderComponent,
+    MenuComponent,
+    HomeComponent,
+    SliderComponent,
+    ProductDetailComponent,
+    ProductDetailContentComponent,
+    ProductDetailBottomComponent,
     SubscribeComponent,
+    FooterComponent,
+    CartComponent,
+    NotFoundComponent,
+    AccountComponent,
+    ContactComponent,
+    ProductCategoryComponent,
+    ProductItemComponent,
+    CheckoutComponent,
     ProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SliderModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

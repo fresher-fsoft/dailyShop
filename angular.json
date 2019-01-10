@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dailyShop": {
+    "daily-shop": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dailyShop",
+            "outputPath": "dist/daily-shop",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,13 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "src/css/font-awesome.css",
+              "src/css/bootstrap.css",         
+              "src/css/styles.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.min.js"
+              "src/js/jquery.min.js",
+              "src/js/bootstrap.js"
             ]
           },
           "configurations": {
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dailyShop:build"
+            "browserTarget": "daily-shop:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dailyShop:build:production"
+              "browserTarget": "daily-shop:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dailyShop:build"
+            "browserTarget": "daily-shop:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "dailyShop-e2e": {
+    "daily-shop-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "dailyShop:serve"
+            "devServerTarget": "daily-shop:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dailyShop:serve:production"
+              "devServerTarget": "daily-shop:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "dailyShop"
+  "defaultProject": "daily-shop"
 }
