@@ -21,11 +21,16 @@ export class CartService {
     return this.totalProductsCart = this.productsCart.length;
   }
 
-  getProductsCarts(): Product[]{
+  getProductsCart(): Product[]{
     return this.productsCart
   }
 
   addToCart(product: Product){
     this.productsCart.push(product)
   }
+
+  deleteProduct(index: number){
+    this.productsCart.splice(index, 1)
+  }
+  
 }

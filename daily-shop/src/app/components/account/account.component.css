@@ -71,3 +71,7 @@
 .aa-login-form .aa-lost-password a {
   color: #555;
 }
+
+.disabled{
+  opacity: 0.5;
+}
