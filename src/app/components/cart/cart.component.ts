@@ -20,6 +20,6 @@ export class CartComponent implements OnInit {
     return this.cartService.productsCart;
   }
   deleteCartItem(i){
-    this.listCart.splice(i, 1);
+    this.cartService.deleteCart(this.listCart, i);
   }
 }

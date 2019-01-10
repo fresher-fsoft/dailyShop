@@ -24,6 +24,7 @@ export class CartService {
   addToCart(product: Product){
     this.productsCart.push(product);
   }
-  deleteCart(){
+  deleteCart(list:any, i){
+      list.splice(i, 1);
   }
 }
