@@ -1,0 +1,44 @@
+<section id="aa-product">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="aa-product-area">
+            <div class="aa-product-inner">
+            
+              <!-- start prduct navigation -->
+               <ul class="nav nav-tabs aa-products-tab">
+                  <li [ngClass]="{'active': productType == 'men'}">
+                    <a (click)="getProducts(8,'men')">
+                      Men
+                    </a>
+                  </li>
+                  <li [ngClass]="{'active': productType == 'women'}">
+                    <a (click)="getProducts(8,'women')">
+                      Women
+                    </a>
+                  </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <!-- Start men product category -->
+                  <div class="tab-pane fade in active" id="men">
+                    <ul class="aa-product-catg">
+                      <!-- start single product item -->
+                      <li *ngFor="let product of products">
+                        <app-product-item [product]="product">
+                        </app-product-item>
+                      </li>
+                    </ul>
+                    <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                  </div>
+                  <!-- / men product category -->
+                  
+                </div>             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

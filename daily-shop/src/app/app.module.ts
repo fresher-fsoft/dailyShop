@@ -16,6 +16,10 @@ import { CartComponent } from './components/cart/cart.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AccountComponent } from './components/account/account.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { ContactComponent } from './components/contact/contact.component';
     CartComponent,
     NotFoundComponent,
     AccountComponent,
-    ContactComponent
+    ContactComponent,
+    ProductCategoryComponent,
+    ProductItemComponent,
+    CheckoutComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
