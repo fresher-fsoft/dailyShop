@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core';
 
 import { Product } from '../model/product';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class ProductCategoryService {
+export class ProductService {
   products: Product[] = [];
   productsMen: Product[] = [];
   productsWomen: Product[] = [];
 
-  constructor() { 
+  constructor() {
     this.products = [
       new Product(1, 't-shirt', 'men'),
       new Product(2, 'a-shirt', 'men'),
@@ -42,7 +41,7 @@ export class ProductCategoryService {
       case 'men':
         productsTmp = this.productsMen.slice(0, size)
         break;
-        case 'women':
+      case 'women':
         productsTmp = this.productsWomen.slice(0, size)
         break;
     }

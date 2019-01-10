@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCategoryService } from '../../services/product-category.service';
+import { ProductService } from '../../services/product.service';
 
 
 import { Product } from '../../model/product';
@@ -14,11 +14,11 @@ export class ProductCategoryComponent implements OnInit {
   productType: string = 'men';
 
   constructor(
-    private productCategoryService: ProductCategoryService
+    private productService: ProductService
   ) { }
 
   ngOnInit() {
-    this.products = this.productCategoryService.getProducts(8, this.productType);
+    this.products = this.productService.getProducts(8, this.productType);
   }
 
   tabClick(type: string){
@@ -27,7 +27,7 @@ export class ProductCategoryComponent implements OnInit {
 
   getProducts(size: number, type: string): Product[]{
     this.productType = type;
-    this.products = this.productCategoryService.getProducts(size, type);
+    this.products = this.productService.getProducts(size, type);
     return this.products
   }
 }
