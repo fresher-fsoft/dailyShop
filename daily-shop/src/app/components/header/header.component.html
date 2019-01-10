@@ -18,9 +18,9 @@
 
             <div class="aa-header-top-right">
               <ul class="aa-head-top-nav-right">
-                <li><a href="account.html">My Account</a></li>
-                <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                <li><a routerLink="/account">My Account</a></li>
+                <li class="hidden-xs"><a routerLink="/cart">My Cart</a></li>
+                <li class="hidden-xs"><a routerLink="/checkout">Checkout</a></li>
                 <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
               </ul>
             </div>
@@ -40,7 +40,7 @@
             <!-- logo  -->
             <div class="aa-logo">
               <!-- Text based logo -->
-              <a href="index.html">
+              <a routerLink="/home">
                 <span class="fa fa-shopping-cart"></span>
                 <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
               </a>
@@ -50,7 +50,7 @@
             <!-- / logo  -->
             <!-- cart box -->
             <div class="aa-cartbox">
-              <a class="aa-cart-link" href="#">
+              <a class="aa-cart-link" routerLink="/cart">
                 <span class="fa fa-shopping-basket"></span>
                 <span class="aa-cart-title">SHOPPING CART</span>
                 <span class="aa-cart-notify">2</span>
@@ -60,7 +60,7 @@
             <!-- / cart box -->
             <!-- search box -->
             <div class="aa-search-box">
-              <form action="">
+              <form routerLink="/product">
                 <input type="text" name="" id="" placeholder="Search here ex. 'man' ">
                 <button type="submit"><span class="fa fa-search"></span></button>
               </form>
@@ -91,7 +91,7 @@
           <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
           <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
           <div class="aa-register-now">
-            Don't have an account?<a href="account.html">Register now!</a>
+            Don't have an account?<a routerLink="/account" data-dismiss="modal" aria-label="Close">Register now!</a>
           </div>
         </form>
       </div>
