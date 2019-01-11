@@ -22,6 +22,12 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ProductComponent } from './components/product/product.component';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +52,10 @@ import { ProductComponent } from './components/product/product.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'daily-shop'),
+    AngularFireDatabaseModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

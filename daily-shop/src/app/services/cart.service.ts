@@ -11,9 +11,7 @@ export class CartService {
 
   constructor() { 
     this.productsCart = [
-      new Product(1, 't-shirt', 'men'),
-      new Product(2, 'a-shirt', 'men'),
-      new Product(3, 'b-shirt', 'men'),
+    
     ]  
   }
 

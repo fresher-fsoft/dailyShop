@@ -9,12 +9,12 @@
               <!-- start prduct navigation -->
                <ul class="nav nav-tabs aa-products-tab">
                   <li [ngClass]="{'active': productType == 'men'}">
-                    <a (click)="getProducts(8,'men')">
+                    <a (click)="getProducts('men')">
                       Men
                     </a>
                   </li>
                   <li [ngClass]="{'active': productType == 'women'}">
-                    <a (click)="getProducts(8,'women')">
+                    <a (click)="getProducts('women')">
                       Women
                     </a>
                   </li>
@@ -25,7 +25,7 @@
                   <div class="tab-pane fade in active" id="men">
                     <ul class="aa-product-catg">
                       <!-- start single product item -->
-                      <li *ngFor="let product of products">
+                      <li *ngFor="let product of productsTmp">
                         <app-product-item [product]="product">
                         </app-product-item>
                       </li>

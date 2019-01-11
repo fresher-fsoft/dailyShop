@@ -1,15 +1,15 @@
 <div class="item">
   <figure>
     <a class="aa-product-img" routerLink="/product-detail">
-      <img src="assets/img/man/polo-shirt-2.png" alt="polo shirt img">
+      <img [src]="product.img" alt="polo shirt img">
     </a>
     <a class="aa-add-card-btn" (click)="addToCart(product)">
       <span class="fa fa-shopping-cart"></span>Add To Cart</a>
     <figcaption>
       <h4 class="aa-product-title">
-        <a routerLink="/product-detail">Abc</a>
+        <a routerLink="/product-detail">{{ product.title }}</a>
       </h4>
-      <span class="aa-product-price">$45.50</span>
+      <span class="aa-product-price">${{ product.price }}</span>
     </figcaption>
   </figure>
 </div>

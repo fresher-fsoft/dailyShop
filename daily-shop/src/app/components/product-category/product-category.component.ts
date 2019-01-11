@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-
-
 import { Product } from '../../model/product';
 
 @Component({
@@ -11,23 +9,46 @@ import { Product } from '../../model/product';
 })
 export class ProductCategoryComponent implements OnInit {
   products: Product[] = [];
+  productsMen: Product[] = [];
+  productsWomen: Product[] = [];
+  productsTmp: Product[] = [];
   productType: string = 'men';
-
+  
   constructor(
-    private productService: ProductService
-  ) { }
+    private productService: ProductService,  
+  ) {}
 
   ngOnInit() {
-    this.products = this.productService.getProducts(8, this.productType);
+    let x = this.productService.getProducts();
+    x.snapshotChanges().subscribe(item => {
+      item.forEach(element => {
+        let y = element.payload.toJSON();
+        y["$key"] = element.key;
+        this.products.push(y as Product);
+
+        this.productsMen    = this.products.filter(product => product.type == 'men');
+        this.productsWomen  = this.products.filter(product => product.type == 'women');
+
+        this.productsTmp = this.productsMen.slice(0, 8);
+      });
+    });
+
+
   }
 
-  tabClick(type: string){
-    this.productType = type
-  }
-
-  getProducts(size: number, type: string): Product[]{
+  getProducts(type: string): Product[]{
     this.productType = type;
-    this.products = this.productService.getProducts(size, type);
-    return this.products
+    
+    switch(type){
+      case 'men': 
+        this.productsTmp = this.productsMen.slice(0, 8);
+        break;
+      case 'women': 
+        this.productsTmp = this.productsWomen.slice(0, 8);
+        break;
+    }
+
+    console.log(this.productsTmp[0])
+    return this.productsTmp
   }
 }
