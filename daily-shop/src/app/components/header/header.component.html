@@ -80,12 +80,38 @@
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4>Login or Register</h4>
-        <form class="aa-login-form" action="">
+        <form 
+          class="aa-login-form" 
+          [formGroup]="userForm" 
+          (ngSubmit)="onLogin(userForm.value)"
+        >
+
           <label>Username or Email address<span>*</span></label>
-          <input type="text" placeholder="Username or email">
+          <input 
+            formControlName="username"
+            type="text" placeholder="Username or email"
+          >
+          <div class="col text-danger" role="alert" 
+            *ngIf="userForm.controls.username.touched 
+            && userForm.controls.username.errors?.required"
+          >
+            required*
+          </div>
+
           <label>Password<span>*</span></label>
-          <input type="password" placeholder="Password">
-          <button class="aa-browse-btn" type="submit">Login</button>
+          <input 
+            formControlName="password"
+            type="password" placeholder="Password"
+          >
+          <div class="col text-danger" role="alert" 
+            *ngIf="userForm.controls.password.touched
+            && userForm.controls.password.errors?.required"
+          >
+            required*
+          </div>
+
+          <button class="aa-browse-btn" type="submit" [ngClass]="{'disabled': !userForm.valid}">Login</button>
+
           <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
           <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
           <div class="aa-register-now">

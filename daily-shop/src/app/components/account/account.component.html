@@ -55,7 +55,7 @@
                   >
                     password is required!
                   </div>
-                  <button type="submit" class="aa-browse-btn" [disabled]="registerForm.invalid" [ngClass]="{disabled : registerForm.invalid}">Register</button>
+                  <button type="submit" class="aa-browse-btn" [disabled]="!registerForm.valid" [ngClass]="{disabled : registerForm.invalid}">Register</button>
                 </form>
               </div>
             
