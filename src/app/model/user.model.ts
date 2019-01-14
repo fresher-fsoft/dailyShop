@@ -1,7 +1,8 @@
 export class User {
-    $id: string;
-    userName: string;
+    uid: string;
     email: string;
-    password: string;
-    phone: string;
+    displayName: string;
+    photoURL: string;
+    emailVerified: boolean;
+
 }

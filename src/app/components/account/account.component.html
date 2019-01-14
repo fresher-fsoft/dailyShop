@@ -10,10 +10,10 @@
                 <h4>Login</h4>
                 <form action="" class="aa-login-form">
                   <label for="">Username or Email address<span>*</span></label>
-                  <input type="text" placeholder="Username or email">
+                  <input type="text" placeholder="Username or email" #userEmail>
                   <label for="">Password<span>*</span></label>
-                  <input type="password" placeholder="Password">
-                  <button type="submit" class="aa-browse-btn">Login</button>
+                  <input type="password" placeholder="Password" #userPassword>
+                  <button type="button" class="aa-browse-btn" (click)="authService.SignIn(userEmail.value, userPassword.value)">Login</button>
                   <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Remember me
                   </label>
                   <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
@@ -25,10 +25,10 @@
                 <h4>Register</h4>
                 <form action="" class="aa-login-form">
                   <label for="">Username or Email address<span>*</span></label>
-                  <input type="text" placeholder="Username or email">
+                  <input type="text" placeholder="Username or email" #userEmail>
                   <label for="">Password<span>*</span></label>
-                  <input type="password" placeholder="Password">
-                  <button type="submit" class="aa-browse-btn">Register</button>
+                  <input type="password" placeholder="Password" #userPassword>
+                  <button type="button" class="aa-browse-btn" (click)="authService.SignUp(userEmail.value, userPassword.value)">Register</button>
                 </form>
               </div>
             </div>
