@@ -22,38 +22,10 @@
             <div class="aa-product-catg-body">
               <ul class="aa-product-catg">
                 <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
+                <li *ngFor="let product of productsTmp">
+                  <app-product-item [product]="product"></app-product-item>
                 </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                
+              
               </ul>
              
             </div>
@@ -88,8 +60,8 @@
             <div class="aa-sidebar-widget">
               <h3>Category</h3>
               <ul class="aa-catg-nav" style="list-style: none">
-                <li><a href="#">Men</a></li>
-                <li><a href="">Women</a></li>
+                <li><a (click)="getProducts('men')">Men</a></li>
+                <li><a (click)="getProducts('women')">Women</a></li>
               </ul>
             </div>
 

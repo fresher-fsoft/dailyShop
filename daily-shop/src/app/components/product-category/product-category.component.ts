@@ -33,7 +33,6 @@ export class ProductCategoryComponent implements OnInit {
       });
     });
 
-
   }
 
   getProducts(type: string): Product[]{
@@ -48,7 +47,7 @@ export class ProductCategoryComponent implements OnInit {
         break;
     }
 
-    console.log(this.productsTmp[0])
+    //console.log(this.productsTmp[0])
     return this.productsTmp
   }
 }

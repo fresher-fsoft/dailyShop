@@ -178,6 +178,7 @@
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a:hover,
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a:focus {
   color: #ff6666;
+  cursor: pointer;
 }
 
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-recently-views {
