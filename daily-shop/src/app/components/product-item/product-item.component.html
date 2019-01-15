@@ -1,9 +1,12 @@
 <div class="item">
   <figure>
-    <a class="aa-product-img" routerLink="/product-detail">
+    <a class="aa-product-img" routerLink="/product-detail/{{product.id}}">
       <img [src]="product.img" alt="polo shirt img">
     </a>
-    <a class="aa-add-card-btn" (click)="addToCart(product)">
+    <a 
+      class="aa-add-card-btn" 
+      (click)="addToCart(product)"
+    >
       <span class="fa fa-shopping-cart"></span>Add To Cart</a>
     <figcaption>
       <h4 class="aa-product-title">

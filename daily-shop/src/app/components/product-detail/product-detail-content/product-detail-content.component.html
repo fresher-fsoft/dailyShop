@@ -24,10 +24,7 @@
         </div>
         <h4>Size</h4>
         <div class="aa-prod-view-size">
-          <button class="active">S</button>
-          <button>M</button>
-          <button>L</button>
-          <button>XL</button>
+          <button *ngFor="let size of productSizes" ngclass="active : false">{{size}}</button>
         </div>
         <div class="aa-prod-quantity">
           <form action="">

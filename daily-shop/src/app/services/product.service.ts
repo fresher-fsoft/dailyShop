@@ -6,6 +6,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class ProductService {
   products: AngularFireList<any>
+  product: AngularFireList<any>
 
   constructor(
     private firebaseDb: AngularFireDatabase
@@ -14,5 +15,10 @@ export class ProductService {
   getProducts(): AngularFireList<any>{
     this.products = this.firebaseDb.list('products')
     return this.products;
+  }
+
+  getProductById(id): AngularFireList<any>{
+    this.product = this.firebaseDb.list('products',ref => ref.orderByChild('id').equalTo(id));
+    return this.product;
   }
 }

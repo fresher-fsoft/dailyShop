@@ -11,15 +11,15 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
-  {path: 'cart',            component: CartComponent},
-  {path: 'checkout',        component: CheckoutComponent},
-  {path: 'contact',         component: ContactComponent},
-  {path: 'product',         component: ProductComponent},
-  {path: 'product-detail',  component: ProductDetailComponent},
-  {path: 'account',         component: AccountComponent},
-  {path: 'home',            component: HomeComponent},
+  {path: 'product-detail/:id',  component: ProductDetailComponent},
+  {path: 'cart',                component: CartComponent},
+  {path: 'checkout',            component: CheckoutComponent},
+  {path: 'contact',             component: ContactComponent},
+  {path: 'product',             component: ProductComponent},
+  {path: 'account',             component: AccountComponent},
+  {path: 'home',                component: HomeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**',              component: NotFoundComponent}
+  {path: '**',                   component: NotFoundComponent}
 ];
 
 @NgModule({

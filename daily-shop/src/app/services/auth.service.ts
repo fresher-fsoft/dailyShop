@@ -37,5 +37,10 @@ export class AuthService {
       })
     })
   }
+
+  logout(){
+    this._firebaseAuth.auth.signOut();
+    this.userService.setUserLogin(false);
+  }
   
 }

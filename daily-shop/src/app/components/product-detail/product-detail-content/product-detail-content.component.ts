@@ -10,6 +10,7 @@ import { Product } from '../../../model/product';
 })
 export class ProductDetailContentComponent implements OnInit {
   @Input() productId : Product;
+  productSizes = ["S", "M", "L", "XL"];
   constructor(
      
   ) { }

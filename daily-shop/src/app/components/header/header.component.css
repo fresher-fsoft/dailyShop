@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+a:hover{
+  cursor: pointer;
+}
+
 #aa-header .aa-header-top {
   border-bottom: 1px solid #E8E8E8;
   display: inline;

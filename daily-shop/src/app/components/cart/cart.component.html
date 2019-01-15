@@ -29,11 +29,17 @@
                         <a href="#"><img src="../../../assets/img/man/polo-shirt-1.png" alt="img"></a>
                       </td>
                       <td>
-                        <a class="aa-cart-title" href="#">Polo T-Shirt</a>
+                        <a class="aa-cart-title" href="#">{{product.title}}</a>
                       </td>
-                      <td>$250</td>
-                      <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                      <td>$250</td>
+                      <td>{{product.price}}</td>
+                      <td>
+                        <input 
+                          class="aa-cart-quantity" type="number"
+                          value="{{product.quantity}}"
+                          (input)="valuechange($event.target.value, index)"
+                        >
+                      </td>
+                      <td>{{product.totalPrice | number:'1.0-2'}}</td>
                     </tr>
                     
                     <tr>
@@ -56,15 +62,15 @@
                 <tbody>
                   <tr>
                     <th>Subtotal</th>
-                    <td>$450</td>
+                    <td>${{totalOrderPrice | number:'1.0-2'}}</td>
                   </tr>
                   <tr>
                     <th>Total</th>
-                    <td>$450</td>
+                    <td>${{totalOrderPrice | number:'1.0-2'}}</td>
                   </tr>
                 </tbody>
               </table>
-              <a routerLink="/checkout" class="aa-cart-view-btn">Proced to Checkout</a>
+              <a (click)="onCheckout()" class="aa-cart-view-btn">Proced to Checkout</a>
             </div>
           </div>
         </div>
