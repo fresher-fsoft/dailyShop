@@ -21,26 +21,9 @@
         <div class="aa-price-block">
           <span class="aa-product-view-price">${{ productId.price }}</span>
           <p class="aa-product-avilability">Avilability: <span>{{ productId.avilability }}</span></p>
+          <p class="aa-product-avilability">Category: <span>{{ productId.category }}</span></p>
         </div>
-        <h4>Size</h4>
-        <div class="aa-prod-view-size">
-          <button *ngFor="let size of productSizes" ngclass="active : false">{{size}}</button>
-        </div>
-        <div class="aa-prod-quantity">
-          <form>
-            <select (change)="onChange($event.target.value)" #quantity>
-              <option selected="1" value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-          </form>
-          <p class="aa-prod-category">
-            Category: <b>{{ productId.category }}</b>
-          </p>
-        </div>
+        
         <div class="aa-prod-view-bottom">
           <a class="aa-add-to-cart-btn" (click)="addToCart(productId)">Add To Cart</a>
         </div>
