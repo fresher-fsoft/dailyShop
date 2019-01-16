@@ -10,9 +10,8 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th *ngIf="listCart.length>0"></th>
-                      <th *ngIf="listCart.length>0"></th>
-                      
+                      <th *ngIf="productsCart.length > 0"></th>
+                      <th *ngIf="productsCart.length > 0"></th>
                       <th>Product</th>
                       <th>Price</th>
                       <th>Quantity</th>
@@ -20,36 +19,29 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- <tr>
-                      <td><a class="remove" href="#">
+                    <tr *ngFor="let product of productsCart; let index = index">
+                      <td>
+                        <a class="remove" (click)="deleteProduct(index)">
                           <i class="fa fa-close"></i>
-                        </a></td>
-                      <td><a href="#"><img src="../../../assets/img/man/polo-shirt-1.png" alt="img"></a></td>
-                      <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                      <td>$250</td>
-                      <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                      <td>$250</td>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="#"><img src="../../../assets/img/man/polo-shirt-1.png" alt="img"></a>
+                      </td>
+                      <td>
+                        <a class="aa-cart-title" href="#">{{product.title}}</a>
+                      </td>
+                      <td>{{product.price}}</td>
+                      <td>
+                        <input 
+                          class="aa-cart-quantity" type="number"
+                          value="{{product.quantity}}"
+                          (input)="valuechange($event.target.value, index)"
+                        >
+                      </td>
+                      <td>{{product.totalPrice | number:'1.0-2'}}</td>
                     </tr>
-                    <tr>
-                      <td><a class="remove" href="#">
-                          <i class="fa fa-close"></i>
-                        </a></td>
-                      <td><a href="#"><img src="../../../assets/img/man/polo-shirt-2.png" alt="img"></a></td>
-                      <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                      <td>$150</td>
-                      <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                      <td>$150</td>
-                    </tr>
-                    <tr>
-                      <td><a class="remove" href="#">
-                          <i class="fa fa-close"></i>
-                        </a></td>
-                      <td><a href="#"><img src="../../../assets/img/man/polo-shirt-3.png" alt="img"></a></td>
-                      <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                      <td>$50</td>
-                      <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                      <td>$50</td>
-                    </tr>
+                    
                     <tr>
                       <td colspan="6" class="aa-cart-view-bottom">
                         <div class="aa-cart-coupon">
@@ -58,16 +50,6 @@
                         </div>
                         <input class="aa-cart-view-btn" type="submit" value="Update Cart" routerLink="/product">
                       </td>
-                    </tr> -->
-                    <tr *ngFor="let item of listCart; let i=index"  >
-                      <td (click)="deleteCartItem(i)"><a class="remove" >
-                        <i class="fa fa-close"></i>
-                      </a></td>
-                    <td><a href="#"><img src="../../../assets/img/man/polo-shirt-3.png" alt="img"></a></td>
-                    <td><a class="aa-cart-title" href="#">{{item.name}}</a></td>
-                    <td>$50</td>
-                    <td><input class="aa-cart-quantity" type="number" min="1" value="1"></td>
-                    <td>$50</td>
                     </tr>
                   </tbody>
                 </table>
@@ -80,15 +62,15 @@
                 <tbody>
                   <tr>
                     <th>Subtotal</th>
-                    <td>$450</td>
+                    <td>${{totalOrderPrice | number:'1.0-2'}}</td>
                   </tr>
                   <tr>
                     <th>Total</th>
-                    <td>$450</td>
+                    <td>${{totalOrderPrice | number:'1.0-2'}}</td>
                   </tr>
                 </tbody>
               </table>
-              <a routerLink="/home" class="aa-cart-view-btn">Proced to Checkout</a>
+              <a (click)="onCheckout()" class="aa-cart-view-btn">Proced to Checkout</a>
             </div>
           </div>
         </div>

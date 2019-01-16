@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../../services/user.service';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -7,9 +10,22 @@ import { UserService } from './../../services/user.service';
 })
 export class AccountComponent implements OnInit {
 
-  constructor(public authService: UserService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  onRegister(value: any){
+    if(value.password == value.confirmPassword){
+      this.authService.doRegister(value)
+      this.router.navigate['/home']
+    }else{
+      alert('confirm password not right')
+      this.router.navigate['home']
+    }
+    
+  }
 }

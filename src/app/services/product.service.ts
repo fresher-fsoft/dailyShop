@@ -1,51 +1,24 @@
 import { Injectable } from '@angular/core';
-
-import { Product } from '../model/product';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  products: Product[] = [];
-  productsMen: Product[] = [];
-  productsWomen: Product[] = [];
+  products: AngularFireList<any>
+  product: AngularFireList<any>
 
-  constructor() {
-    this.products = [
-      new Product(1, 't-shirt', 'men'),
-      new Product(2, 'a-shirt', 'men'),
-      new Product(3, 'b-shirt', 'men'),
-      new Product(4, 'c-shirt', 'men'),
-      new Product(5, 'd-shirt', 'men'),
-      new Product(6, 'e-shirt', 'men'),
-      new Product(7, 'f-shirt', 'men'),
-      new Product(8, 'g-shirt', 'men'),
-      new Product(1, 't-shirt', 'wonmen'),
-      new Product(2, 't-shirt', 'wonmen'),
-      new Product(3, 't-shirt', 'wonmen'),
-      new Product(4, 't-shirt', 'wonmen'),
-      new Product(5, 't-shirt', 'wonmen'),
-      new Product(6, 't-shirt', 'wonmen'),
-      new Product(7, 't-shirt', 'wonmen'),
-      new Product(8, 't-shirt', 'wonmen'),
-    ]
+  constructor(
+    private firebaseDb: AngularFireDatabase
+  ) {}
 
-    this.productsMen    = this.products.filter(product => product.type == 'men')
-    this.productsWomen  = this.products.filter(product => product.type == 'wonmen')
+  getProducts(): AngularFireList<any>{
+    this.products = this.firebaseDb.list('products')
+    return this.products;
   }
 
-  getProducts(size: number, type: string): Product[]{
-    let productsTmp: Product[] = []
-    
-    switch(type){
-      case 'men':
-        productsTmp = this.productsMen.slice(0, size)
-        break;
-      case 'women':
-        productsTmp = this.productsWomen.slice(0, size)
-        break;
-    }
-    
-    return productsTmp;
+  getProductById(id): AngularFireList<any>{
+    this.product = this.firebaseDb.list('products',ref => ref.orderByChild('id').equalTo(id));
+    return this.product;
   }
 }

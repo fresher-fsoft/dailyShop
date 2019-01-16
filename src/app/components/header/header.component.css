@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+a:hover{
+  cursor: pointer;
+}
+
 #aa-header .aa-header-top {
   border-bottom: 1px solid #E8E8E8;
   display: inline;
@@ -173,14 +177,18 @@
 }
 
 #aa-header .aa-header-bottom .aa-cartbox .aa-cart-link .aa-cart-notify {
+  text-align: center;
+  line-height: 20px;
+  width: 30px;
+  height: 20px;
+  margin-right: -15px;
   background-color: #fff;
   border-radius: 50%;
   font-size: 12px;
   font-weight: bold;
-  padding: 2px 9px;
   position: absolute;
-  right: 39%;
-  top: -15px;
+  right: 50%;
+  top: -13px;
   z-index: 10;
   -webkit-animation-name: cartbox-transition;
   -webkit-animation-duration: 2s;
@@ -190,6 +198,8 @@
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  border: 1px solid #ff6666;  
+  color: #ff6666;
 }
 
 #aa-header .aa-header-bottom .aa-cartbox .aa-cart-link .aa-cart-notify:after,
@@ -208,6 +218,7 @@
   border-color: rgba(255, 102, 102, 0);
   border-width: 5px;
   margin-left: -5px;
+  border-top-color: #ff6666;
 }
 
 #aa-header .aa-header-bottom .aa-cartbox .aa-cart-link .aa-cart-notify:before {
@@ -355,13 +366,7 @@
 #aa-header .aa-header-bottom .aa-cartbox .aa-cart-link {
   color: #ff6666;  
 }
-#aa-header .aa-header-bottom .aa-cartbox .aa-cart-link .aa-cart-notify {
-  border: 1px solid #ff6666;  
-  color: #ff6666;  
-}
-#aa-header .aa-header-bottom .aa-cartbox .aa-cart-link .aa-cart-notify:after { 
-  border-top-color: #ff6666;  
-}
+
 #aa-header .aa-header-bottom .aa-cartbox .aa-cartbox-summary ul li .aa-remove-product:hover, #aa-header .aa-header-bottom .aa-cartbox .aa-cartbox-summary ul li .aa-remove-product:focus {
   border-color: #ff6666;
 }
@@ -429,7 +434,6 @@
   border: 1px solid #ccc;
   font-size: 16px;
   height: 40px;
-  margin-bottom: 15px;
   padding: 10px;
   width: 100%;
 }
@@ -470,14 +474,6 @@
   color: #555;
 }
 
-.aa-browse-btn {
-  background-color: #ff6666;  
-  border: 1px solid #ff6666;  
-}
-.aa-browse-btn:hover, .aa-browse-btn:focus {
-  color: #ff6666;
-  background-color: #fff;
-}
 
 /*---- LOGIN MODAL ----*/
 #login-modal .modal-content {

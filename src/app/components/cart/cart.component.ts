@@ -1,25 +1,51 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CartService } from '../../services/cart.service';
+import { UserService } from '../../services/user.service';
+
 import { Product } from '../../model/product';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartProduct: Product[];
-  public listCart;
-  constructor(private cartService: CartService) { }
+  productsCart: any[] = [];
+  totalOrderPrice: number = 0;
+
+  constructor(
+    private cartService: CartService,
+    private userService: UserService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
-    this.listCart = this.getCartProduct();
-    console.log(this.listCart);
+    //this.productsCart = this.cartService.getProductsCart()
   }
 
-  getCartProduct(){
-    return this.cartService.productsCart;
+  valuechange($event: number, index: number){
+    this.cartService.updateProductsCart(index, $event)
   }
-  deleteCartItem(i){
-    this.cartService.deleteCart(this.listCart, i);
+
+  ngAfterContentChecked(): void {
+    this.productsCart = this.cartService.getProductsCart() 
+    this.totalOrderPrice = this.cartService.getTotalPriceCart() 
   }
+
+  deleteProduct(index: number){
+    this.cartService.deleteProduct(index)
+  }
+
+  onCheckout(){
+    if(this.productsCart.length > 0){
+      if(this.userService.getUserLogin() == false){
+        alert('login')
+      }else {
+        this.router.navigate(['/checkout']);
+      }
+    }else this.router.navigate(['/product']);
+  }
+
 }
