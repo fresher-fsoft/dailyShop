@@ -138,3 +138,7 @@ button.disabled, button.disabled:hover{
   color: #fff;
   cursor: no-drop;
 }
+
+a{
+  cursor: pointer;
+}
