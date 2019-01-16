@@ -11,7 +11,6 @@
                   <thead>
                     <tr>
                       <th *ngIf="productsCart.length > 0"></th>
-                      <th *ngIf="productsCart.length > 0"></th>
                       <th>Product</th>
                       <th>Price</th>
                       <th>Quantity</th>
@@ -25,9 +24,9 @@
                           <i class="fa fa-close"></i>
                         </a>
                       </td>
-                      <td>
-                        <img src="../../../assets/img/man/polo-shirt-1.png" alt="img">
-                      </td>
+                      <!-- <td>
+                        <img [src]="'../../../assets/img/fashion/'+ product.img + '.png'" alt="img">
+                      </td> -->
                       <td>
                         <a class="aa-cart-title" href="#">{{product.title}}</a>
                       </td>
