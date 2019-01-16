@@ -11,16 +11,7 @@ export class CheckoutComponent implements OnInit {
   order = {
     uid: this.authService.loginID,
     products: [] = this.cartService.productsCart,
-    shipInfo:{
-      firstName:"",
-      lastName:"",
-      phoneNo:"",
-      email:"",
-      address:"",
-      district:"",
-      city: "",
-      note:""
-    }
+    shipInfo: {}
   }
  
   constructor(
@@ -33,10 +24,8 @@ export class CheckoutComponent implements OnInit {
   }
 
   checkout(): void {
-    //console.log(this.cartService.productsCart);
-    this.orderService.addOther(this.order);
-    //alert(JSON.stringify(this.order));
-    //console.log(this.authService.loginID);
+    this.orderService.addOther(this.order.shipInfo);
+    this.orderService.deleteCartAfterOrder(this.authService.loginID);
   }
 
 }

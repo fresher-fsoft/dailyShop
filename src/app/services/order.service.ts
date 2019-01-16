@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { CartService } from './../services/cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +7,19 @@ import { CartService } from './../services/cart.service';
 export class OrderService {
 
   orders: AngularFireList<any>;
-  constructor(private firebaseDb: AngularFireDatabase, private cartService: CartService) { }
+  constructor(private firebaseDb: AngularFireDatabase) { }
 
   addOther(producCart) {
+    console.log(producCart);
     this.firebaseDb.list('orders').push(producCart);
   }
-  deleteCartAfterOrder() {
+  deleteCartAfterOrder(userId: string) {
+    const ref = this.firebaseDb.database.ref('carts');
+    ref.orderByChild('userId').equalTo(userId).once(
+    'value', snapshot => {
+      const updates = {};
+      snapshot.forEach(child => updates[child.key] = null);
+      ref.update(updates);
+    });
   }
-
-  // getOderByUserId(userId:string): AngularFireList<any>{
-  //   this.orders = this.firebaseDb.list('orders',ref => ref.orderByChild('userId').equalTo(userId));
-  //   return this.orders;
-  // }
 }

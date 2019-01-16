@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @Injectable({
@@ -14,7 +15,8 @@ export class AuthService {
   loginID;
   constructor(
     private _firebaseAuth: AngularFireAuth, 
-    private userService: UserService
+    private userService: UserService,
+    private angularFireDatabase: AngularFireDatabase
   ) { 
     this.user = _firebaseAuth.authState;
   }
@@ -25,8 +27,7 @@ export class AuthService {
     this.getUID();
     return sigin;
   }
-//test get child value
-  link = 'https://stackoverflow.com/questions/38681225/how-to-remove-values-in-firebase';
+
 
   getUID () {
     this.loginID = this._firebaseAuth.auth.currentUser.uid;
