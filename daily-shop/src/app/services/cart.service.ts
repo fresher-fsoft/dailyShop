@@ -41,7 +41,7 @@ export class CartService {
   }
 
   addToCart(product: Product){
-    
+  
     let quantity = 1;
     let totalPrice = product.price * quantity;
 
@@ -52,10 +52,14 @@ export class CartService {
       quantity  : quantity,
       totalPrice: totalPrice
     }
+
     if(this.productsCart.length > 0){
+      let flag: boolean = false;
+      
       for(let i = 0; i < this.productsCart.length; i++){
         if(this.productsCart[i].productId == product.id){
-          let quantityTmp = ++this.productsCart[i].quantity;
+          flag = true;
+          let quantityTmp = this.productsCart[i].quantity + 1;
           let totalPriceTmp = product.price * quantityTmp;
 
           let productTmp = {
@@ -65,19 +69,18 @@ export class CartService {
             quantity  : quantityTmp,
             totalPrice: totalPriceTmp
           }
-
-          this.productsCart.splice(i, 1, productTmp)
-          //this.productsCart.push(productTmp)
-
-          //console.log(this.productsCart[i])
-          break;
-        }else {
-          this.productsCart.push(productCart);
+          this.productsCart.splice(i, 1)
+          this.productsCart.push(productTmp)
           break;
         }
       }
-    }else this.productsCart.push(productCart);
-       
+
+      if(flag == false){
+        this.productsCart.push(productCart);
+      }  
+    }
+    else this.productsCart.push(productCart);
+    
   }
 
   deleteProduct(index: number){
@@ -103,7 +106,6 @@ export class CartService {
       }
     }
 
-    console.log(this.productsCart)
   }
 
   addOther(order: any){

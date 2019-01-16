@@ -7,7 +7,7 @@
           <div class="simpleLens-container">
             <div class="simpleLens-big-image-container">
               <a class="simpleLens-lens-image">
-                <img [src]="productId.img" class="simpleLens-big-image">
+                <img [src]="'../../../../assets/img/fashion/' + productId.img + '.png'" class="simpleLens-big-image">
               </a>
             </div>
           </div>
@@ -27,8 +27,8 @@
           <button *ngFor="let size of productSizes" ngclass="active : false">{{size}}</button>
         </div>
         <div class="aa-prod-quantity">
-          <form action="">
-            <select id="" name="">
+          <form>
+            <select (change)="onChange($event.target.value)" #quantity>
               <option selected="1" value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -42,7 +42,7 @@
           </p>
         </div>
         <div class="aa-prod-view-bottom">
-          <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
+          <a class="aa-add-to-cart-btn" (click)="addToCart(productId)">Add To Cart</a>
         </div>
       </div>
     </div>

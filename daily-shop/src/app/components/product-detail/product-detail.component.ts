@@ -13,7 +13,7 @@ export class ProductDetailComponent implements OnInit {
   productId: Product;
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
     ) { }
 
   ngOnInit() {
@@ -40,6 +40,7 @@ export class ProductDetailComponent implements OnInit {
         y["$key"] = item[0].key;
         this.products.push(y as Product);
         this.productId = this.products[0]
+        //console.log(this.productId)
       });
     
   }

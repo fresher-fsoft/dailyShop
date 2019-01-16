@@ -4,7 +4,7 @@ import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { OrderService } from '../../services/order.service';
-
+import *  as $ from '../../../js/jquery.min.js';
 
 @Component({
   selector: 'app-header',
