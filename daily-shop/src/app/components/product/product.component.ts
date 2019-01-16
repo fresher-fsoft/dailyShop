@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
         this.productsMen    = this.products.filter(product => product.type == 'men');
         this.productsWomen  = this.products.filter(product => product.type == 'women');
 
-        this.productsTmp = this.productsMen.slice(0, 8);
+        this.productsTmp = this.productsMen;
       });
     });
   }
@@ -37,10 +37,10 @@ export class ProductComponent implements OnInit {
     
     switch(type){
       case 'men': 
-        this.productsTmp = this.productsMen.slice(0, 8);
+        this.productsTmp = this.productsMen;
         break;
       case 'women': 
-        this.productsTmp = this.productsWomen.slice(0, 8);
+        this.productsTmp = this.productsWomen;
         break;
     }
 

@@ -164,7 +164,9 @@
   color: #ff6666;
   border-bottom: 1px solid #ff6666;
 }
-
+#aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li.active a{
+  color: #ff6666
+}
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a {
   display: block;
   padding: 4px 0;
