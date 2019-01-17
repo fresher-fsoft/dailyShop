@@ -10,9 +10,11 @@ import { AuthService } from './../../services/auth.service';
 export class CheckoutComponent implements OnInit {
   totalOrderPrice = this.cartService.getTotalPriceCart();
   listCart = this.cartService.productsCart;
+  uid = this.authService.loginID;
+  product = this.cartService.productsCart;
   order = {
-    uid: this.authService.loginID,
-    products: [] = this.cartService.productsCart,
+    uid: this.uid,
+    products: [] = this.product,
     shipInfo: {}
   };
 
@@ -23,12 +25,16 @@ export class CheckoutComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log(this.listCart);
+    // console.log(this.listCart);
+    // this.cartService.productsCart = null;
+    console.log(this.orderService.getKeyCartByUserID(this.authService.loginID));
   }
 
   checkout(): void {
-    this.orderService.addOther(this.order.shipInfo);
-    this.orderService.deleteCartAfterOrder(this.authService.loginID);
+    this.orderService.addOther(this.order, '2dki6ZAW4bV4FRhiMmDGaSOtMi53');
   }
-
+  ngOnDestroy(): void {
+    // Called once, before the instance is destroyed.
+    // Add 'implements OnDestroy' to the class.
+  }
 }

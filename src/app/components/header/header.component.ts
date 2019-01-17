@@ -56,7 +56,8 @@ export class HeaderComponent implements OnInit {
         x.snapshotChanges().subscribe(item => {
           // console.log(item);
           if(item[0] == undefined && this.listProduct.length > 0){
-            this.cartService.addOther(order)
+            console.log('login');
+            //this.cartService.addOther(order)
           }
         });
         //const UID = this.authService.getUID();

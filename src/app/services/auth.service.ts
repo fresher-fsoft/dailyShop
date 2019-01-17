@@ -24,12 +24,14 @@ export class AuthService {
   signInRegular(email, password){
     const credential = firebase.auth.EmailAuthProvider.credential(email, password);
     const sigin = this._firebaseAuth.auth.signInWithEmailAndPassword(email, password);
-    this.getUID();
+    //this.getUID();
+    this.loginID = this._firebaseAuth.auth.currentUser.uid;
     return sigin;
   }
   
-  getUID () {
-    this.loginID = this._firebaseAuth.auth.currentUser.uid;
+  getUID(): any{
+    
+    return this.loginID;
   }
   doRegister(value){
     return new Promise<any>((resolve, reject) => {
