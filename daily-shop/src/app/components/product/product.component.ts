@@ -44,7 +44,7 @@ export class ProductComponent implements OnInit {
         break;
     }
 
-    console.log(this.productsTmp[0])
+    //console.log(this.productsTmp[0])
     return this.productsTmp
   }
 

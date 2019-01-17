@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Product } from '../model/product';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
@@ -108,13 +107,33 @@ export class CartService {
 
   }
 
-  addOther(order: any){
+  /*addOther(order: any){
     this.firebaseDb.list('carts').push(order)
-  }
+  }*/
 
-  getOderByUserId(userId:string): AngularFireList<any>{
+  /*getOderByUserId(userId:string): AngularFireList<any>{
     this.orders = this.firebaseDb.list('carts',ref => ref.orderByChild('userId').equalTo(userId));
     return this.orders;
-  }
+  }*/
   
+  /*updateOderByUserId(userId:string){
+    this.firebaseDb.list('carts',ref => ref.orderByChild('userId').equalTo(userId))
+  }*/
+
+  /*getKeyCartByUserID(userid: string) {
+    let keycart = '';
+    const ref = this.firebaseDb.database.ref('carts').orderByChild('userId').startAt(userid).endAt(userid);
+    ref.once('value', function(snap) {
+    keycart = Object.keys(snap.val())[0];
+    console.log(keycart);
+    });
+    return keycart;
+  }*/
+
+  deleteCartAfterOrder(userId: string) {
+    this.productsCart = []
+    // const itemRef = this.firebaseDb.list('carts');
+    // itemRef.remove(this.getKeyCartByUserID(userId));
+    
+  }
 }

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="checkout-area">
-          <form novalidate action="" #checkoutForm="ngForm">
+          <form novalidate #checkoutForm="ngForm">
             <div class="row">
               <!--Checkout-Left-->
               <div class="col-md-8">
@@ -125,14 +125,15 @@
                               </div>
                             </div>
                           </div>
-                          <div class="row">
+                          <!-- Note -->
+                          <!-- <div class="row">
                             <div class="col-md-12">
                               <div class="aa-checkout-single-bill">
-                                <!-- Note -->
-                                <textarea cols="8" rows="3" [(ngModel)]="order.shipInfo.note" placeholder="Special Notes"></textarea>
+                                
+                                <textarea cols="8" rows="3" [(ngModel)]="order.shipInfo.note" name="note" #note="ngModel" placeholder="Special Notes"></textarea>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -153,42 +154,18 @@
                       </thead>
                       <tbody>
                         <!-- order-item -->
-                        <tr>
-                          <td>T-Shirt
-                            <strong> x 1</strong>
+                        <tr *ngFor="let item of products">
+                          <td>{{ item.title }}
+                            <strong> x {{ item.quantity }}</strong>
                           </td>
-                          <td>$150</td>
-                        </tr>
-                        <!-- order-item -->
-                        <tr>
-                          <td>Polo T-Shirt
-                            <strong> x 1</strong>
-                          </td>
-                          <td>$250</td>
-                        </tr>
-                        <!-- order-item -->
-                        <tr>
-                          <td>Shoes
-                            <strong> x 1</strong>
-                          </td>
-                          <td>$350</td>
+                          <td>{{ item.totalPrice }}</td>
                         </tr>
                       </tbody>
                       <tfoot>
-                        <!-- subtotal -->
-                        <tr>
-                          <th>Subtotal</th>
-                          <td>$750</td>
-                        </tr>
-                        <!-- tax -->
-                        <tr>
-                          <th>Tax</th>
-                          <td>$35</td>
-                        </tr>
                         <!-- total -->
                         <tr>
                           <th>Total</th>
-                          <td>$785</td>
+                          <td>${{ totalOrderPrice | number: '1.0-2' }}</td>
                         </tr>
                       </tfoot>
                     </table>
@@ -202,7 +179,7 @@
                     <img src="../../assets/img/paypal-checkout.jpg" border="0" alt="PayPal Acceptance Mark">
                     <!-- Submit button -->
                     <input type="submit" [disabled]="checkoutForm.invalid" [ngClass]="{disabled : checkoutForm.invalid}"
-                      (click)="checkout()" value="Place Order" class="aa-browse-btn">
+                      (click)="checkout(checkoutForm.value)" value="Place Order" class="aa-browse-btn">
                     <!-- validate form -->
                     <div class="col alert text-danger" role="alert" *ngIf="checkoutForm.invalid">
                       ** Required infomation isn't filled full !

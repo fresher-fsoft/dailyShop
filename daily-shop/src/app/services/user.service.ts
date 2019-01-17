@@ -6,6 +6,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class UserService {
   isLogin: boolean = false;
+  userDetails: any;
   constructor(private firebaseDb: AngularFireDatabase) { }
 
   addUser(uid: string, name: string, email: string){
@@ -24,4 +25,5 @@ export class UserService {
     this.isLogin = isLogin
   }
 
+  
 }

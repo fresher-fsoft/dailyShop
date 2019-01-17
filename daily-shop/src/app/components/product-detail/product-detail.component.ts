@@ -33,14 +33,13 @@ export class ProductDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
 
     let x = this.productService.getProductById(id);
+    
     x.snapshotChanges().subscribe(item => {
-      // console.log(item[0]);
-      
         let y = item[0].payload.toJSON();
         y["$key"] = item[0].key;
         this.products.push(y as Product);
         this.productId = this.products[0]
-        //console.log(this.productId)
+        
       });
     
   }
