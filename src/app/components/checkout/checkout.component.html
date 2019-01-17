@@ -153,42 +153,18 @@
                       </thead>
                       <tbody>
                         <!-- order-item -->
-                        <tr>
-                          <td>T-Shirt
-                            <strong> x 1</strong>
+                        <tr *ngFor="let item of listCart">
+                          <td>{{ item.title }}
+                            <strong> x {{ item.quantity }}</strong>
                           </td>
-                          <td>$150</td>
-                        </tr>
-                        <!-- order-item -->
-                        <tr>
-                          <td>Polo T-Shirt
-                            <strong> x 1</strong>
-                          </td>
-                          <td>$250</td>
-                        </tr>
-                        <!-- order-item -->
-                        <tr>
-                          <td>Shoes
-                            <strong> x 1</strong>
-                          </td>
-                          <td>$350</td>
+                          <td>{{ item.totalPrice }}</td>
                         </tr>
                       </tbody>
                       <tfoot>
-                        <!-- subtotal -->
-                        <tr>
-                          <th>Subtotal</th>
-                          <td>$750</td>
-                        </tr>
-                        <!-- tax -->
-                        <tr>
-                          <th>Tax</th>
-                          <td>$35</td>
-                        </tr>
                         <!-- total -->
                         <tr>
                           <th>Total</th>
-                          <td>$785</td>
+                          <td>${{ totalOrderPrice | number: '1.0-2' }}</td>
                         </tr>
                       </tfoot>
                     </table>

@@ -27,8 +27,7 @@ export class AuthService {
     this.getUID();
     return sigin;
   }
-
-
+  
   getUID () {
     this.loginID = this._firebaseAuth.auth.currentUser.uid;
   }

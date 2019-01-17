@@ -8,12 +8,14 @@ import { AuthService } from './../../services/auth.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  totalOrderPrice = this.cartService.getTotalPriceCart();
+  listCart = this.cartService.productsCart;
   order = {
     uid: this.authService.loginID,
     products: [] = this.cartService.productsCart,
     shipInfo: {}
-  }
- 
+  };
+
   constructor(
     private orderService: OrderService,
     private cartService: CartService,
@@ -21,6 +23,7 @@ export class CheckoutComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    console.log(this.listCart);
   }
 
   checkout(): void {
