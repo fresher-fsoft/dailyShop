@@ -1,0 +1,75 @@
+<!-- Cart view section -->
+<section id="aa-myaccount">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="aa-myaccount-area">
+          <div class="row">            
+              <div class="aa-myaccount-register">
+                <h4>Register</h4>
+                <form novalidate class="aa-login-form" 
+                  #registerForm="ngForm"
+                  (ngSubmit)="onRegister(registerForm.value)"
+                >
+                  <label>First Name<span>*</span></label>
+                  <input type="text" placeholder="First Name" ngModel name="firstName" 
+                    #firstName="ngModel" required>
+                  <!-- validate First Name -->
+                  <div class="col text-danger" role="alert" 
+                    *ngIf="firstName.touched && firstName.invalid"
+                  >
+                    First Name is required!
+                  </div>
+                  <label>Last Name<span>*</span></label>
+                  <input type="text" placeholder="Last Name" ngModel name="lastName" 
+                    #lastName="ngModel" required>
+                  <!-- validate Last Name -->
+                  <div class="col text-danger" role="alert" 
+                    *ngIf="lastName.touched && lastName.invalid"
+                  >
+                    Last Name is required!
+                  </div>
+                  <label>Email address<span>*</span></label>
+                  <input type="text" placeholder="Email" ngModel name="email" #email="ngModel" 
+                  required>
+                  <!-- validate Email -->
+                  <div class="col text-danger" role="alert" 
+                    *ngIf="email.touched && email.invalid"
+                  >
+                    Email is required!
+                  </div>
+                  <label>Password<span>*</span></label>
+                  <input type="password" placeholder="Password" ngModel name="password" 
+                    #password="ngModel" required
+                  >
+                  <!-- validate password -->
+                  <div class="col text-danger" role="alert" 
+                    *ngIf="password.touched && password.invalid"
+                  >
+                    password is required!
+                  </div>
+                  <label>Confirm Password<span>*</span></label>
+                  <input type="password" placeholder="Password" ngModel name="confirmPassword"
+                    #confirmPassword="ngModel" required
+                  >
+                  <!-- validate confirm password -->
+                  <div class="col text-danger" role="alert" 
+                    *ngIf="confirmPassword.touched && confirmPassword.invalid"
+                  >
+                    password is required!
+                  </div>
+                  <button 
+                    type="submit" class="aa-browse-btn" 
+                    [disabled]="!registerForm.valid" 
+                    [ngClass]="{disabled : registerForm.invalid}"
+                  >Register</button>
+                </form>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / Cart view section -->

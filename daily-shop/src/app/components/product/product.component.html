@@ -1,0 +1,108 @@
+<!-- product category -->
+<div class="productPage">
+  <section id="aa-product-category">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
+          <div class="aa-product-catg-content">
+            
+            <div class="aa-product-catg-body">
+              <ul class="aa-product-catg">
+                <!-- start single product item -->
+                <li *ngFor="let product of productsTmp">
+                  <app-product-item [product]="product"></app-product-item>
+                </li>
+              
+              </ul>
+             
+            </div>
+
+            <!-- <div class="aa-product-catg-pagination">
+              <nav>
+                <ul class="pagination">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-4 col-md-pull-9">
+          <aside class="aa-sidebar">
+            <!-- single sidebar -->
+            <div class="aa-sidebar-widget">
+              <h3>Category</h3>
+              <ul class="aa-catg-nav" style="list-style: none">
+                <li [ngClass]="{'active': productType == 'men'}"><a (click)="getProducts('men')">Men</a></li>
+                <li [ngClass]="{'active': productType == 'women'}"><a (click)="getProducts('women')">Women</a></li>
+              </ul>
+            </div>
+
+
+
+            <!-- single sidebar -->
+            <!-- <div class="aa-sidebar-widget">
+              <h3>Recently Views</h3>
+              <div class="aa-recently-views">
+                <ul>
+                  <li>
+                    <a href="#" class="aa-cartbox-img"><img alt="img" src="../../../assets/img/woman-small-1.jpg"></a>
+                    <div class="aa-cartbox-info">
+                      <h4><a href="#">Product Name</a></h4>
+                      <p>1 x $250</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" class="aa-cartbox-img"><img alt="img" src="../../../assets/img/woman-small-1.jpg"></a>
+                    <div class="aa-cartbox-info">
+                      <h4><a href="#">Product Name</a></h4>
+                      <p>1 x $250</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+            <!-- single sidebar -->
+
+            <!-- <div class="aa-sidebar-widget">
+              <h3>Top Rated Products</h3>
+              <div class="aa-recently-views">
+                <ul>
+                  <li>
+                    <a href="#" class="aa-cartbox-img"><img alt="img" src="../../../assets/img/woman-small-1.jpg"></a>
+                    <div class="aa-cartbox-info">
+                      <h4><a href="#">Product Name</a></h4>
+                      <p>1 x $250</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" class="aa-cartbox-img"><img alt="img" src="../../../assets/img/woman-small-1.jpg"></a>
+                    <div class="aa-cartbox-info">
+                      <h4><a href="#">Product Name</a></h4>
+                      <p>1 x $250</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+          </aside>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>

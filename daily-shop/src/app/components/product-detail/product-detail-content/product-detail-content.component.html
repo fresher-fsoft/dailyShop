@@ -1,0 +1,33 @@
+<div class="aa-product-details-content">
+  <div class="row">
+    <!-- Modal view slider -->
+    <div class="col-md-5 col-sm-5 col-xs-12">
+      <div class="aa-product-view-slider">
+        <div id="demo-1" class="simpleLens-gallery-container">
+          <div class="simpleLens-container">
+            <div class="simpleLens-big-image-container">
+              <a class="simpleLens-lens-image">
+                <img [src]="'../../../../assets/img/fashion/' + productId.img + '.png'" class="simpleLens-big-image">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal view content -->
+    <div class="col-md-7 col-sm-7 col-xs-12">
+      <div class="aa-product-view-content">
+        <h3>{{ productId.title }}</h3>
+        <div class="aa-price-block">
+          <span class="aa-product-view-price">${{ productId.price }}</span>
+          <p class="aa-product-avilability">Avilability: <span>{{ productId.avilability }}</span></p>
+          <p class="aa-product-avilability">Category: <span>{{ productId.category }}</span></p>
+        </div>
+        
+        <div class="aa-prod-view-bottom">
+          <a class="aa-add-to-cart-btn" (click)="addToCart(productId)">Add To Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+1. hide login form when login success
+
+2. show login form when user click proced to check out but not yet login
+
+3. add disabled atrr for login submit button
+
+4. install ngx-toastr and import ToastrModule to app + import ngx-toast css in angular.json file
+
+5. create toast service + import toast service to cart service to show toast when add item to cart
+
+6. fix navigate to home page when register successfully in auth.service

@@ -1,0 +1,115 @@
+.item {
+  /* display: block;
+    float: left; */
+  height: 380px;
+  /* text-align: center; */
+  /* margin: 0 4.5% 20px 0;
+    width: 20.5%; */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+.item:hover figure .aa-product-img {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.item:hover figure .aa-add-card-btn {
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.item figure .aa-add-card-btn:hover {
+  color: #ff6666;
+  cursor: pointer;
+}
+
+.aa-browse-btn:hover,
+.aa-browse-btn:focus {
+  color: #ff6666;
+}
+
+
+.item figure {
+  position: relative;
+  height: 300px;
+}
+
+.item figure .aa-product-img {
+  background-color: #f9f9fb;
+  display: block;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.item figure .aa-add-card-btn {
+  background: #000 none repeat scroll 0 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  left: 0;
+  padding: 12px 10px;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.item figure .aa-add-card-btn span {
+  margin-right: 5px;
+}
+
+.item .aa-product-title {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.item .aa-product-title a {
+  color: #333;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.item .aa-product-price {
+  color: #ff6666;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+
+.item .aa-product-price del {
+  margin-left: 5px;
+}
+
+
+
+
+
+.item .aa-sold-out {
+  background-color: #FF0000;
+}
+
+.item .aa-hot {
+  background-color: #ff6600;
+}
