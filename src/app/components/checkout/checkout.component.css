@@ -208,3 +208,7 @@
 #checkout .checkout-area .checkout-right h4 {
   color: #ff6666;
 }
+
+.disabled{
+  opacity: 0.5;
+}

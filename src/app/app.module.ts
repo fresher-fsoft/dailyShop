@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,15 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ProductComponent } from './components/product/product.component';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { ProductTableComponent } from './components/product-table/product-table.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,11 +51,19 @@ import { ProductComponent } from './components/product/product.component';
     ProductCategoryComponent,
     ProductItemComponent,
     CheckoutComponent,
-    ProductComponent
+    ProductComponent,
+    ProductTableComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'daily-shop'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    AngularFireStorageModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

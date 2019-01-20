@@ -153,10 +153,6 @@
   display: inline;
   float: left;
   width: 100%;
-  /* category */
-  /* tags */
-  /* price range  */
-  /* price by color */
 }
 
 #aa-product-category .aa-sidebar .aa-sidebar-widget h3 {
@@ -164,7 +160,9 @@
   color: #ff6666;
   border-bottom: 1px solid #ff6666;
 }
-
+#aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li.active a{
+  color: #ff6666
+}
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a {
   display: block;
   padding: 4px 0;
@@ -178,6 +176,7 @@
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a:hover,
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a:focus {
   color: #ff6666;
+  cursor: pointer;
 }
 
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-recently-views {

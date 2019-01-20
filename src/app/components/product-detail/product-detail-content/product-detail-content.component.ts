@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '../../../model/product';
+import { CartService } from '../../../services/cart.service';
+
 
 @Component({
   selector: 'app-product-detail-content',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-detail-content.component.css']
 })
 export class ProductDetailContentComponent implements OnInit {
+  @Input() productId : Product;
 
-  constructor() { }
+  constructor(
+    private cartService: CartService
+  ) { }
 
   ngOnInit() {
+    
+  }
+  addToCart(product: Product){
+    this.cartService.addToCart(product)
   }
 
+  // onChange(value){
+  //   console.log(value)
+  // }
 }

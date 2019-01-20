@@ -26,6 +26,7 @@
 
 .item figure .aa-add-card-btn:hover {
   color: #ff6666;
+  cursor: pointer;
 }
 
 .aa-browse-btn:hover,

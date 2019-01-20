@@ -5,60 +5,19 @@
       <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
           <div class="aa-product-catg-content">
-            <div class="aa-product-catg-head">
-              <div class="aa-product-catg-head-left">
-                
-                <form action="" class="aa-show-form">
-                  <label for="">Show</label>
-                  <select name="">
-                    <option value="1" selected="12">12</option>
-                    <option value="2">24</option>
-                    <option value="3">36</option>
-                  </select>
-                </form>
-              </div>
-
-            </div>
+            
             <div class="aa-product-catg-body">
               <ul class="aa-product-catg">
                 <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
+                <li *ngFor="let product of productsTmp">
+                  <app-product-item [product]="product"></app-product-item>
                 </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <app-product-item></app-product-item>
-                </li>
-                
+              
               </ul>
              
             </div>
 
-            <div class="aa-product-catg-pagination">
+            <!-- <div class="aa-product-catg-pagination">
               <nav>
                 <ul class="pagination">
                   <li>
@@ -78,7 +37,7 @@
                   </li>
                 </ul>
               </nav>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -88,15 +47,15 @@
             <div class="aa-sidebar-widget">
               <h3>Category</h3>
               <ul class="aa-catg-nav" style="list-style: none">
-                <li><a href="#">Men</a></li>
-                <li><a href="">Women</a></li>
+                <li [ngClass]="{'active': productType == 'men'}"><a (click)="getProducts('men')">Men</a></li>
+                <li [ngClass]="{'active': productType == 'women'}"><a (click)="getProducts('women')">Women</a></li>
               </ul>
             </div>
 
 
 
             <!-- single sidebar -->
-            <div class="aa-sidebar-widget">
+            <!-- <div class="aa-sidebar-widget">
               <h3>Recently Views</h3>
               <div class="aa-recently-views">
                 <ul>
@@ -116,10 +75,10 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <!-- single sidebar -->
 
-            <div class="aa-sidebar-widget">
+            <!-- <div class="aa-sidebar-widget">
               <h3>Top Rated Products</h3>
               <div class="aa-recently-views">
                 <ul>
@@ -139,7 +98,7 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </aside>
         </div>
 
