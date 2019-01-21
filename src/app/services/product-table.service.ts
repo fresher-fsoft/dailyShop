@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators'
 import { AngularFireStorage } from 'angularfire2/storage';
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class ProductTableService {
   constructor(private firebaseDb: AngularFireDatabase, private storage: AngularFireStorage) { 
     this.listProduct = this.getListProduct();
    }
-  
+
   getListProduct() {
     return this.firebaseDb.list('products').valueChanges();
   }
@@ -30,13 +29,13 @@ export class ProductTableService {
     let ref;
     let itemRef;
     ref = this.firebaseDb.database.ref('products');
-    ref.push(product).then(ref =>{
+    ref.push(product).then(refimg => {
       itemRef = this.firebaseDb.list('products');
-      itemRef.update(ref.key, {id: ref.key});
-      console.log(ref.key+ 'id product inserted');
+      itemRef.update(refimg.key, {id: refimg.key});
+      console.log(refimg.key + 'id product inserted');
     });
   }
-  
+
   updateProduct() {
 
   }

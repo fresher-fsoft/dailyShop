@@ -63,7 +63,6 @@ import { ProductTableComponent } from './components/product-table/product-table.
     AngularFireAuthModule,
     ReactiveFormsModule,
     AngularFireStorageModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

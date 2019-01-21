@@ -1,4 +1,4 @@
-<!-- <table class="table">
+<table class="table">
   <thead>
     <tr>
       <th>test</th>
@@ -6,23 +6,23 @@
       <th>test</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let item of items | async">
+  <tbody *ngFor="let item of items | async">
+    <tr  *ngIf="!item.delete">
       <td scope="row">{{ item.id }}</td>
-      <td></td>
-      <td></td>
+      <td><img [src]="item.img" alt=""></td>
+      <td><input type="button" (click)="getProductById(item.id)" value="click"><td><input type="button" (click)="deleteProduct(item.id)" value="delete"></td></td>
+      
     </tr>
     
   </tbody>
-</table> -->
-<!-- <form>
+</table>
+<form>
+    <input type="file" (change) = "uploadFile($event)"  accept=".png, .jpg">
+
+    <div>{{ uploadPercent | async }}</div>
+      <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+    <input type="text" [(ngModel)]="product.img"  [ngModelOptions]="{standalone: true}" >
   <input type="text" [(ngModel)]="product.size" [ngModelOptions]="{standalone: true}">
   <input type="submit" (click)="addProduct()">
-</form> -->
+</form>
 
-  <input type="file" (change) = "uploadFile($event)"  accept=".png, .jpg">
-
-  <div>{{ uploadPercent | async }}</div>
-    <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
-    <input type="text" [value] = "downloadURL | async"  >
-    <img [src]="downloadURL | async">
