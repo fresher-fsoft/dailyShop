@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductTableService } from './../../services/product-table.service';
 import { finalize } from 'rxjs/operators';
-import { AngularFireModule} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { async } from '@angular/core/testing';
 @Component({
   selector: 'app-product-table',
   templateUrl: './product-table.component.html',
@@ -11,6 +12,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class ProductTableComponent implements OnInit {
   items;
+  imgLink;
   product = {
     id: '',
     size: '',
@@ -36,11 +38,11 @@ export class ProductTableComponent implements OnInit {
   }
   deleteProduct(productId) {
     const ref = this.firebaseDb.object('/products/' + productId);
-    ref.update({delete: true});
+    ref.update({ delete: true });
   }
   updateProduct(product) {
     const ref = this.firebaseDb.object('/products/' + product.id);
-    ref.update({id: product.id, img: product.img, size: product.size});
+    ref.update({ id: product.id, img: product.img, size: product.size });
   }
   getProductById(productID) {
     //const object = this.firebaseDb.list('/products', ref => ref.orderByChild('id').equalTo(productID));
@@ -50,9 +52,9 @@ export class ProductTableComponent implements OnInit {
     this.singleProduct.splice(0);
     const data = this.firebaseDb.object('/products/' + productID);
     data.valueChanges()
-    .subscribe(res => this.singleProduct.push(res));
+      .subscribe(res => this.singleProduct.push(res));
     console.log(this.singleProduct);
-   }
+  }
   uploadFile(event) {
     const file = event.target.files[0];
     const filePath = 'name-your-file-path-here';
@@ -61,10 +63,15 @@ export class ProductTableComponent implements OnInit {
     // observe percentage changes
     this.uploadPercent = task.percentageChanges();
     // get notified when the download URL is available
-    task.snapshotChanges().pipe(
-        finalize(() => this.downloadURL = fileRef.getDownloadURL() )
-     )
-    .subscribe();
+     task.snapshotChanges().pipe(
+      finalize(async () => {
+        this.downloadURL = fileRef.getDownloadURL();
+      })
+    )
+      .subscribe();
+  }
+  insertImgLink() {
+    this.downloadURL.subscribe(res => { console.log('thanh' + res); this.imgLink = res; });
   }
 
 }
