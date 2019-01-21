@@ -23,4 +23,13 @@ export class ProductService {
     );
     return this.product;
   }
+
+  getProductByType(type: string): AngularFireList<any>{
+    this.product = this.firebaseDb.list('products', ref => 
+      ref.orderByChild('type').equalTo(type)
+    );
+    return this.product;
+  }
+
+
 }

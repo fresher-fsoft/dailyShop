@@ -11,7 +11,6 @@ export class ProductCategoryComponent implements OnInit {
   products: Product[] = [];
   productsMen: Product[] = [];
   productsWomen: Product[] = [];
-  productsTmp: Product[] = [];
   productType: string = 'men';
   
   constructor(
@@ -19,20 +18,7 @@ export class ProductCategoryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let x = this.productService.getProducts();
-    x.snapshotChanges().subscribe(item => {
-      item.forEach(element => {
-        let y = element.payload.toJSON();
-        y["$key"] = element.key;
-        this.products.push(y as Product);
-
-        this.productsMen    = this.products.filter(product => product.type == 'men');
-        this.productsWomen  = this.products.filter(product => product.type == 'women');
-
-        this.productsTmp = this.productsMen.slice(0, 8);
-      });
-    });
-
+    this.getProducts('men')
   }
 
   getProducts(type: string): Product[]{
@@ -40,14 +26,30 @@ export class ProductCategoryComponent implements OnInit {
     
     switch(type){
       case 'men': 
-        this.productsTmp = this.productsMen.slice(0, 8);
+        this.productsMen = [];
+        let x = this.productService.getProductByType('men');
+        x.snapshotChanges().subscribe(item => {
+          item.forEach(element => {
+            let y = element.payload.toJSON();
+            y["$key"] = element.key;
+            this.productsMen.push(y as Product);
+            this.products = this.productsMen.slice(0, 8);
+          });
+        });
         break;
       case 'women': 
-        this.productsTmp = this.productsWomen.slice(0, 8);
+        this.productsWomen = [];
+        let z = this.productService.getProductByType('women');
+        z.snapshotChanges().subscribe(item => {
+          item.forEach(element => {
+            let y = element.payload.toJSON();
+            y["$key"] = element.key;
+            this.productsWomen.push(y as Product);
+            this.products = this.productsWomen.slice(0, 8);
+          });
+        });
         break;
     }
-
-    //console.log(this.productsTmp[0])
-    return this.productsTmp
+    return this.products
   }
 }

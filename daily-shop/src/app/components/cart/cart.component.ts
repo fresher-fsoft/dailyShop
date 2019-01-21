@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { UserService } from '../../services/user.service';
 
-import { Product } from '../../model/product';
+import { ToastService } from '../../services/toast.service';
+declare var $: any;
 
 @Component({
   selector: 'app-cart',
@@ -19,12 +20,14 @@ export class CartComponent implements OnInit {
     private cartService: CartService,
     private userService: UserService,
     private router: Router,
+    private toastService: ToastService,
   ) { }
 
   ngOnInit() {
-    //this.productsCart = this.cartService.getProductsCart()
+    
   }
 
+  //value item count change
   valuechange($event: number, index: number){
     this.cartService.updateProductsCart(index, $event)
   }
@@ -36,17 +39,16 @@ export class CartComponent implements OnInit {
 
   deleteProduct(index: number){
     this.cartService.deleteProduct(index)
-    //this.cartService.updateOderByUserId('HnjTZTs7fOdPyccQpA9R1NbKYGa2')
   }
 
   onCheckout(){
     if(this.productsCart.length > 0){
       if(this.userService.getUserLogin() == false){
-        alert('login')
+        $("#login-modal").modal("show");
       }else {
         this.router.navigate(['/checkout']);
       }
-    }else this.router.navigate(['/product']);
+    }else this.toastService.showWarning("you have to add item to cart!");
   }
 
 }

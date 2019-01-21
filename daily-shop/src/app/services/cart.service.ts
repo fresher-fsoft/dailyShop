@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { ToastService } from './toast.service'
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,10 @@ export class CartService {
   productsCart: any[] = [];
   orders : AngularFireList<any>;
 
-  constructor(private firebaseDb: AngularFireDatabase) { }
+  constructor(
+    private firebaseDb: AngularFireDatabase,
+    private toastService: ToastService,
+    ) { }
 
   getTotalProductsCart(): number{
     let totalQuantity = 0
@@ -40,7 +44,7 @@ export class CartService {
   }
 
   addToCart(product: Product){
-  
+    this.toastService.showSuccess('add item to cart successfully!');
     let quantity = 1;
     let totalPrice = product.price * quantity;
 
@@ -107,6 +111,10 @@ export class CartService {
 
   }
 
+  deleteCartAfterOrder(userId: string) {
+    this.productsCart = []
+  }
+
   /*addOther(order: any){
     this.firebaseDb.list('carts').push(order)
   }*/
@@ -130,10 +138,5 @@ export class CartService {
     return keycart;
   }*/
 
-  deleteCartAfterOrder(userId: string) {
-    this.productsCart = []
-    // const itemRef = this.firebaseDb.list('carts');
-    // itemRef.remove(this.getKeyCartByUserID(userId));
-    
-  }
+  
 }

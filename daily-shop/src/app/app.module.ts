@@ -27,8 +27,13 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import { AdminComponent } from './components/admin/admin.component';
+import {DataTableModule} from "angular-6-datatable";
 
 @NgModule({
   declarations: [
@@ -49,7 +54,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     ProductCategoryComponent,
     ProductItemComponent,
     CheckoutComponent,
-    ProductComponent
+    ProductComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     AngularFireModule.initializeApp(environment.firebaseConfig, 'daily-shop'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    AngularFireStorageModule,
+    DataTableModule
+
     
   ],
   providers: [],

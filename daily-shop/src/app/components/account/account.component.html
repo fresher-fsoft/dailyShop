@@ -30,14 +30,18 @@
                     Last Name is required!
                   </div>
                   <label>Email address<span>*</span></label>
-                  <input type="text" placeholder="Email" ngModel name="email" #email="ngModel" 
+                  <input type="email" placeholder="Email" ngModel name="email" #email="ngModel" 
                   required>
                   <!-- validate Email -->
                   <div class="col text-danger" role="alert" 
-                    *ngIf="email.touched && email.invalid"
+                    *ngIf="email.touched && email.errors?.required"
                   >
                     Email is required!
                   </div>
+                  <!-- validate Email -->
+                  <!-- <div class="col text-danger" role="alert" *ngIf="email.touched && email.invalid">
+                    Wrong Email!
+                  </div> -->
                   <label>Password<span>*</span></label>
                   <input type="password" placeholder="Password" ngModel name="password" 
                     #password="ngModel" required

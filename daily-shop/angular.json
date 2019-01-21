@@ -25,7 +25,8 @@
             "styles": [
               "src/css/font-awesome.css",
               "src/css/bootstrap.css",         
-              "src/css/styles.css"
+              "src/css/styles.css",
+              "./node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/js/jquery.min.js",

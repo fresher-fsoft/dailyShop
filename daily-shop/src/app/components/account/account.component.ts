@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import {ToastService} from '../../services/toast.service'
 
 
 @Component({
@@ -12,7 +13,8 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) { }
 
   ngOnInit() {
@@ -23,7 +25,7 @@ export class AccountComponent implements OnInit {
       this.authService.doRegister(value)
       this.router.navigate['/home']
     }else{
-      alert('confirm password not right')
+      this.toastService.showError("confirm password wrong!");
       this.router.navigate['home']
     }
     

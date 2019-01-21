@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
+import {ToastService} from '../../services/toast.service'
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -12,17 +14,20 @@ import { UserService } from '../../services/user.service';
 export class HeaderComponent implements OnInit {
   totalProductsCart: number = 0;
   isLogin: boolean = false;
+  isAdmin: boolean = false;
   userForm = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
   })
   listProduct: any[] = []
   username: string;
+  
   constructor(
     private cartService: CartService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private toastService: ToastService,
   ) { }
 
   ngOnInit() {
@@ -34,30 +39,20 @@ export class HeaderComponent implements OnInit {
     this.isLogin = this.userService.getUserLogin();
     if(!this.userService.getUserLogin()){
       this.listProduct = this.cartService.getProductsCart();
-    }
-    
+    }  
   } 
 
   signInWithEmail(email: string, password: string) {
     this.authService.signInRegular(email, password)
       .then((res) => {
-        // let order = {
-        //   userId: res.user.uid,
-        //   listProduct: this.listProduct
-        // }
-
-        // //check login and update cart items
-        // let x = this.cartService.getOderByUserId(res.user.uid);
-        // x.snapshotChanges().subscribe(item => {
-        //   if(item[0] == undefined && this.listProduct.length > 0){
-        //     this.cartService.addOther(order)
-        //   }
-        // });
+        this.isAdmin = (res.user.uid == 'HnjTZTs7fOdPyccQpA9R1NbKYGa2') ? true : false
+        $("#login-modal").modal("hide");
+        this.toastService.showSuccess("Login successfully");
         this.userService.setUserLogin(true);
-        alert('login success');
+        
       })
       .catch((err) => {
-        alert('login fail');
+        this.toastService.showError("The user credentials were incorrect.");
       }
     );
   }
@@ -68,6 +63,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout(){
+    this.toastService.showSuccess("Logout successfully");
     this.authService.logout()
   }
 }

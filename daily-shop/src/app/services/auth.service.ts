@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 import { AngularFireDatabase } from 'angularfire2/database';
+import {ToastService} from './toast.service'
 
 
 @Injectable({
@@ -17,7 +18,9 @@ export class AuthService {
   constructor(
     private _firebaseAuth: AngularFireAuth, 
     private userService: UserService,
-    private angularFireDatabase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase,
+    private toastService: ToastService,
+    private router: Router,
   ) { 
     this.user = _firebaseAuth.authState;
   }
@@ -40,10 +43,11 @@ export class AuthService {
       .then(res => {
         resolve(res);
         this.userService.addUser(res.user.uid, value.firstName, value.email)
-        alert('register success')
+        this.router.navigate(['/home']);
+        this.toastService.showSuccess("register successfully!")
       }, err => {
         reject(err);
-        alert('register fail')
+        this.toastService.showError(err);
       })
     })
   }

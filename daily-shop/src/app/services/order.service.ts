@@ -12,7 +12,6 @@ export class OrderService {
   constructor(private firebaseDb: AngularFireDatabase, private cartService: CartService) { }
 
   addOther(producCart, userid) {
-    //console.log(producCart);
     this.firebaseDb.list('orders').push(producCart);
     this.cartService.deleteCartAfterOrder(userid);
   }

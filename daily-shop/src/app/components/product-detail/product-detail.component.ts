@@ -40,7 +40,7 @@ export class ProductDetailComponent implements OnInit {
         this.products.push(y as Product);
         this.productId = this.products[0]
         
-      });
+    });
     
   }
 

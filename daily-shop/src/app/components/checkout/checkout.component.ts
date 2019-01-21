@@ -3,6 +3,7 @@ import { OrderService } from './../../services/order.service';
 import { CartService } from './../../services/cart.service';
 import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
+import {ToastService} from '../../services/toast.service';
 
 @Component({
   selector: 'app-checkout',
@@ -11,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class CheckoutComponent implements OnInit {
   totalOrderPrice: number;
-  //listCart = this.cartService.productsCart;
   uid: string;
   products: any [];
   order = {
@@ -24,21 +24,17 @@ export class CheckoutComponent implements OnInit {
     private orderService: OrderService,
     private cartService: CartService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService,
     ) { }
 
   ngOnInit() {
-    // console.log(this.listCart);
-    // this.cartService.productsCart = null;
-    //console.log(this.cartService.getKeyCartByUserID(this.authService.loginID));
   }
 
   ngAfterContentChecked(): void {
     this.uid = this.authService.getUID();
     this.totalOrderPrice = this.cartService.getTotalPriceCart();
-    this.products = this.cartService.getProductsCart();
-
-    
+    this.products = this.cartService.getProductsCart();  
   }
 
   checkout(value: any): void {
@@ -48,13 +44,9 @@ export class CheckoutComponent implements OnInit {
       shipInfo: value
     }
     
-    //console.log(this.order)
     this.orderService.addOther(this.order, this.uid);
-    alert('checkout success');
+    this.toastService.showSuccess("ordered successfully!");
     this.router.navigate(['/home']);
   }
-  ngOnDestroy(): void {
-    // Called once, before the instance is destroyed.
-    // Add 'implements OnDestroy' to the class.
-  }
+  
 }

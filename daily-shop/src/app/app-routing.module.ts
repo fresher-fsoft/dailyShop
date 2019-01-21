@@ -9,6 +9,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { AccountComponent } from './components/account/account.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {path: 'product-detail/:id',  component: ProductDetailComponent},
@@ -17,9 +18,10 @@ const routes: Routes = [
   {path: 'contact',             component: ContactComponent},
   {path: 'product',             component: ProductComponent},
   {path: 'account',             component: AccountComponent},
+  {path: 'admin',               component: AdminComponent},
   {path: 'home',                component: HomeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**',                   component: NotFoundComponent}
+  {path: '**',                  component: NotFoundComponent}
 ];
 
 @NgModule({

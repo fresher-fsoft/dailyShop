@@ -18,6 +18,7 @@
 
             <div class="aa-header-top-right">
               <ul class="aa-head-top-nav-right">
+                <li class="hidden-xs" *ngIf="isAdmin"><a routerLink="/admin">Admin</a></li>
                 <li class="hidden-xs" *ngIf="isLogin"><a routerLink="/cart">{{username}}</a></li>
                 <li class="hidden-xs" *ngIf="isLogin"><a (click)="onLogout()">Logout</a></li>
                 <li *ngIf="!isLogin"><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
@@ -58,12 +59,12 @@
             </div>
             <!-- / cart box -->
             <!-- search box -->
-            <div class="aa-search-box">
+            <!-- <div class="aa-search-box">
               <form routerLink="/product">
                 <input type="text" placeholder="Search here ex. 'man' ">
                 <button type="submit"><span class="fa fa-search"></span></button>
               </form>
-            </div>
+            </div> -->
             <!-- / search box -->
           </div>
         </div>
@@ -112,6 +113,7 @@
           </div>
 
           <button class="aa-browse-btn" type="submit" [ngClass]="{'disabled': !userForm.valid}"
+            [disabled]="!userForm.valid"
           >
             Login
           </button>
