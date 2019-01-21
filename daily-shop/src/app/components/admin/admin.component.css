@@ -35,3 +35,69 @@
 .add-product-btn:hover{
     background-color: #155b97;
 }
+
+
+/*---- Login form ----*/
+
+.aa-login-form input[type="text"],
+.aa-login-form input[type="number"],
+.aa-login-form input[type="email"],
+.aa-login-form input[type="password"] {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 100%;
+}
+.aa-login-form textarea{
+    border: 1px solid #ccc;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+.aa-login-form label {
+  font-weight: normal;
+  margin-top: 8px;
+}
+.aa-login-form label span {
+  color: red;
+}
+.aa-login-form .rememberme {
+  cursor: pointer;
+  margin-top: 18px;
+}
+.aa-login-form input[type="checkbox"] {
+  margin-top: 5px;
+}
+.aa-login-form button {
+  font-size: 14px;
+  padding: 8px 20px;
+  margin-right: 5px;
+  margin-top: 10px;
+  float: left;
+}
+.aa-login-form .aa-lost-password {
+  color: #555;
+  margin-top: 10px;
+  width: 100%;
+}
+.aa-login-form .aa-lost-password a {
+  color: #555;
+}
+
+.disabled{
+  opacity: 0.5;
+}
+
+label{
+    width: 100%;
+  }
+  
+  
+  .save-btn{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top:15px;
+    width: 100%;
+  }

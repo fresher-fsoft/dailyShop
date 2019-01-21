@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataTableModule} from "angular-6-datatable";
+declare var $: any;
 
 @Component({
   selector: 'app-admin',
@@ -23,6 +24,11 @@ export class AdminComponent implements OnInit {
       {'name':'erer', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
       {'name':'jhjh', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' }
     ]
+  }
+
+  showEditForm(){
+    $("#editProduct-modal").modal("show");
+    console.log("Asdasdadasdasd")
   }
 
 }
