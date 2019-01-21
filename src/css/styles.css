@@ -59,6 +59,7 @@ img {
 .aa-add-to-cart-btn:hover, .aa-add-to-cart-btn:focus {
   color: #ff6666;
   border-color: #ff6666;
+  cursor: pointer;
 }
 
 .aa-browse-btn {
@@ -136,4 +137,8 @@ button.disabled, button.disabled:hover{
   background-color: #ff6666;
   color: #fff;
   cursor: no-drop;
+}
+
+a{
+  cursor: pointer;
 }

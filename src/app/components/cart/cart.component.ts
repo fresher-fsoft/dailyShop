@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
 
   deleteProduct(index: number){
     this.cartService.deleteProduct(index)
+    //this.cartService.updateOderByUserId('HnjTZTs7fOdPyccQpA9R1NbKYGa2')
   }
 
   onCheckout(){
@@ -47,4 +48,5 @@ export class CartComponent implements OnInit {
       }
     }else this.router.navigate(['/product']);
   }
+
 }

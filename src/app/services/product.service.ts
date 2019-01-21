@@ -18,7 +18,9 @@ export class ProductService {
   }
 
   getProductById(id): AngularFireList<any>{
-    this.product = this.firebaseDb.list('products',ref => ref.orderByChild('id').equalTo(id));
+    this.product = this.firebaseDb.list('products', ref => 
+      ref.orderByChild('id').equalTo(id)
+    );
     return this.product;
   }
 }

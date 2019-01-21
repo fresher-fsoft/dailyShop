@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../../model/product';
-
+import { CartService } from '../../../services/cart.service';
 
 
 @Component({
@@ -10,13 +10,19 @@ import { Product } from '../../../model/product';
 })
 export class ProductDetailContentComponent implements OnInit {
   @Input() productId : Product;
-  productSizes = ["S", "M", "L", "XL"];
+
   constructor(
-     
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
     
   }
+  addToCart(product: Product){
+    this.cartService.addToCart(product)
+  }
 
+  // onChange(value){
+  //   console.log(value)
+  // }
 }
