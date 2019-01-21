@@ -84,6 +84,6 @@ export class AdminComponent implements OnInit {
 
   showEditForm(){
     $("#editProduct-modal").modal("show");
-    console.log("Asdasdadasdasd")
+    
   }
 }
