@@ -9,7 +9,7 @@ export class ProductTableService {
   listProduct: Observable<any[]>;
   downloadURL: Observable<string>;
   uploadPercent: Observable<number>;
-  constructor(private firebaseDb: AngularFireDatabase, private storage: AngularFireStorage) { 
+  constructor(private firebaseDb: AngularFireDatabase, private storage: AngularFireStorage) {
     this.listProduct = this.getListProduct();
    }
 

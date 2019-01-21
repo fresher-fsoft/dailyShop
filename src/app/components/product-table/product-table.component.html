@@ -21,7 +21,7 @@
 
     <div>{{ uploadPercent | async }}</div>
       <a [href]="downloadURL | async" (change)="insertImgLink()">{{ downloadURL | async }}</a>
-    <input type="text" [(ngModel)]="imgLink"  [ngModelOptions]="{standalone: true}" >
+    <input type="text" [(ngModel)]="product.img" [ngModelOptions]="{standalone: true}" >
     <button (click)="insertImgLink()">link</button>
   <input type="text" [(ngModel)]="product.size" [ngModelOptions]="{standalone: true}">
   <input type="submit" (click)="addProduct()">

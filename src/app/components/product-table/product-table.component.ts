@@ -55,7 +55,7 @@ export class ProductTableComponent implements OnInit {
       .subscribe(res => this.singleProduct.push(res));
     console.log(this.singleProduct);
   }
-  uploadFile(event) {
+  async uploadFile(event) {
     const file = event.target.files[0];
     const filePath = 'name-your-file-path-here';
     const fileRef = this.storage.ref(filePath);
@@ -63,15 +63,14 @@ export class ProductTableComponent implements OnInit {
     // observe percentage changes
     this.uploadPercent = task.percentageChanges();
     // get notified when the download URL is available
-     task.snapshotChanges().pipe(
+    await task.snapshotChanges().pipe(
       finalize(async () => {
         this.downloadURL = fileRef.getDownloadURL();
       })
-    )
-      .subscribe();
+    ).toPromise().then(res =>  {this.imgLink = res; this.insertImgLink(); });
   }
   insertImgLink() {
-    this.downloadURL.subscribe(res => { console.log('thanh' + res); this.imgLink = res; });
+    this.downloadURL.subscribe(res => { console.log('thanh' + res); this.product.img = res; });
   }
 
 }
