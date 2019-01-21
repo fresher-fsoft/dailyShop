@@ -30,6 +30,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
+import { AdminComponent } from './components/admin/admin.component';
+
+import {DataTableModule} from "angular-6-datatable";
 
 
 
@@ -52,7 +55,8 @@ import {ToastrModule} from 'ngx-toastr';
     ProductCategoryComponent,
     ProductItemComponent,
     CheckoutComponent,
-    ProductComponent
+    ProductComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,8 @@ import {ToastrModule} from 'ngx-toastr';
     AngularFireAuthModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    DataTableModule
     
   ],
   providers: [],
