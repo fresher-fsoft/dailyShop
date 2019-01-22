@@ -13,19 +13,33 @@
     
 }
 
-.delete-btn{
+.lock-btn{
     border: none;
     outline: none;
     color: white;
     background-color: #e94646;
 }
-.delete-btn:hover{
+.lock-btn:hover{
     background-color: #b62323;
 }
+.unlock-btn{
+  border: none;
+  outline: none;
+  color: white;
+  background-color:  #95c44a;
+}
+
+.unlock-btn:hover{
+  border: none;
+  outline: none;
+  color: white;
+  background-color:  #688a31;
+}
+
 
 .add-product-btn{
     float: right;
-    padding: 3px;
+    padding: 5px 3px;
     background-color: #3e7bb1;
     color: white;
     border: none;
@@ -100,4 +114,9 @@ label{
     padding-bottom: 5px;
     margin-top:15px;
     width: 100%;
+  }
+
+  .aa-container{
+    clear: both;
+    margin-top: 10px;
   }

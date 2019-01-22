@@ -1,49 +1,51 @@
-
-<div class="container">
-  <button class="add-product-btn">New Product</button>
+<div style="clear:both"></div>
+<div class="container aa-container">
+  <h1>Product Manager</h1>
+  <button class="add-product-btn" (click)="showAddForm()">New Product</button>
   <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
     <thead>
-    <tr>
+      <tr>
         <th style="width: 20%">
-            <mfDefaultSorter by="name">Title</mfDefaultSorter>
+          <mfDefaultSorter by="name">Title</mfDefaultSorter>
         </th>
         <th style="width: 45%">
-            <mfDefaultSorter by="email">Descirption</mfDefaultSorter>
+          <mfDefaultSorter by="email">Descirption</mfDefaultSorter>
         </th>
         <th style="width: 10%">
-            <mfDefaultSorter by="age">Type</mfDefaultSorter>
+          <mfDefaultSorter by="age">Type</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="city">Price</mfDefaultSorter>
+          <mfDefaultSorter by="city">Price</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="">Avilability</mfDefaultSorter>
+          <mfDefaultSorter by="">Avilability</mfDefaultSorter>
         </th>
         <th style="width: 2%">
-            <mfDefaultSorter by="" (click)="showEditForm()">Edit</mfDefaultSorter>
+          <mfDefaultSorter by="" (click)="showEditForm()">Edit</mfDefaultSorter>
         </th>
         <th style="width: 3%">
-            <mfDefaultSorter by="">Status</mfDefaultSorter>
+          <mfDefaultSorter by="">Status</mfDefaultSorter>
         </th>
-    </tr>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of mf.data">
+      <tr *ngFor="let item of mf.data">
         <td>{{item.name}}</td>
         <td>{{item.email}}</td>
-        <td >{{item.age}}</td>
+        <td>{{item.age}}</td>
         <td>{{item.city | uppercase}}</td>
         <td>dsdsa</td>
         <td><button class="edit-btn" (click)="showEditForm()"><i class="fa fa-edit"></i></button></td>
-        <td><button class="delete-btn"><i class="fa fa-trash"></i></button></td>
-    </tr>
+        <td *ngIf="item.status==0"><button class="lock-btn" (click)="changeStatus(item)"><i class="fa fa-eye-slash"></i></button></td>
+        <td *ngIf="item.status==1"><button class="unlock-btn" (click)="changeStatus(item)"><i class="fa fa-eye"></i></button></td>
+      </tr>
     </tbody>
     <tfoot>
-    <tr>
+      <tr>
         <td colspan="4">
-            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
         </td>
-    </tr>
+      </tr>
     </tfoot>
   </table>
 </div>
@@ -52,56 +54,150 @@
 
 <!-- Login Modal -->
 <div class="modal fade" id="editProduct-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3>Edit Product</h3>
-                <form novalidate class="aa-login-form" #eidtProductForm="ngForm" (ngSubmit)="onEdit(eidtProductForm.value)">
-                    <!--Title-->
-                    <label>Title
-                        <span>*</span>
-                    </label>
-                    <input type="text" placeholder="Title" ngModel name="firstName" #firstName="ngModel" required>
-                    
-                    <!--Type-->
-                    <label>Type
-                        <span>*</span>
-                    </label>
-                    <select>
-                        <option>Men</option>
-                        <option>Women</option>
-                    </select>
-                    <!--Description-->
-                    <label style="width:100%">Description
-                        <span>*</span>
-                    </label>
-                    <div>
-                        <textarea cols="8" rows="3" ngModel name="note" #note="ngModel" placeholder="Description"></textarea>
-                    </div>
-                    <!-- Image-->
-                    <label>Image
-                        <span>*</span>
-                    </label>
-                    <input type="file" placeholder="img" ngModel name="image" #image="ngModel" required>
-                    <!--Price-->
-                    <label style="width:100%">Price
-                        <span>*</span>
-                    </label>
-                    <input type="number" ngModel name="price" #price="ngModel" required>
-                     <!--avilability-->
-                    <label style="width:100%">Avilability
-                        <span>*</span>
-                    </label>
-                    <input type="number" ngModel name="price" #price="ngModel" required>
-                
-                    <input type="submit" class="aa-browse-btn save-btn" [disabled]="!eidtProductForm.valid" [ngClass]="{disabled : eidtProductForm.invalid}"
-                        value="Save">
-                    <div></div>
-                </form>
-            </div>
-        </div>
-        <!-- /.modal-content -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Edit Product</h3>
+        <form novalidate class="aa-login-form" #eidtProductForm="ngForm" (ngSubmit)="onEdit(eidtProductForm.value)">
+          <!--Title-->
+          <label>Title
+            <span>*</span>
+          </label>
+          <input type="text" placeholder="Title" ngModel name="firstName" #firstName="ngModel" required>
+
+          <!--Type-->
+          <label>Type
+            <span>*</span>
+          </label>
+          <select>
+            <option>Men</option>
+            <option>Women</option>
+          </select>
+          <!--Description-->
+          <label style="width:100%">Description
+            <span>*</span>
+          </label>
+          <div>
+            <textarea cols="8" rows="3" ngModel name="note" #note="ngModel" placeholder="Description" required></textarea>
+          </div>
+          <!-- Image-->
+          <label>Image
+            <span>*</span>
+          </label>
+          <input type="file" (change)="uploadFile($event)" accept=".png, .jpg" required>
+
+          <div>{{ uploadPercent | async }}</div>
+          <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+          <!--Price-->
+          <label style="width:100%">Price
+            <span>*</span>
+          </label>
+          <input type="number" ngModel name="price" #price="ngModel" required>
+          <!--avilability-->
+          <label style="width:100%">Avilability
+            <span>*</span>
+          </label>
+          <input type="number" ngModel name="Avilability" #Avilability="ngModel" required>
+
+          <input type="submit" class="aa-browse-btn save-btn" [disabled]="!eidtProductForm.valid" [ngClass]="{disabled : eidtProductForm.invalid}"
+            value="Save"> 
+          <div></div>
+        </form>
+      </div>
     </div>
-    <!-- /.modal-dialog -->
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
 </div>
+
+<!--Add new product-->
+<div class="modal fade" id="addProduct-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Add new product</h3>
+        <form novalidate class="aa-login-form" #addProductForm="ngForm" (ngSubmit)="onEdit(addProductForm.value)">
+          <!--Title-->
+          <label>Title
+            <span>*</span>
+          </label>
+          <input type="text" placeholder="Title" ngModel name="firstName" #firstName="ngModel" required>
+
+          <!--Type-->
+          <label>Type
+            <span>*</span>
+          </label>
+          <select>
+            <option>Men</option>
+            <option>Women</option>
+          </select>
+          <!--Description-->
+          <label style="width:100%">Description
+            <span>*</span>
+          </label>
+          <div>
+            <textarea cols="8" rows="3" ngModel name="note" #note="ngModel" placeholder="Description" required></textarea>
+          </div>
+          <!-- Image-->
+          <label>Image
+            <span>*</span>
+          </label>
+          <input type="file" (change)="uploadFile($event)" accept=".png, .jpg" required>
+
+          <div>{{ uploadPercent | async }}</div>
+          <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+          <!--Price-->
+          <label style="width:100%">Price
+            <span>*</span>
+          </label>
+          <input type="number" ngModel name="price" #price="ngModel" required>
+          <!--avilability-->
+          <label style="width:100%">Avilability
+            <span>*</span>
+          </label>
+          <input type="number" ngModel name="Avilability" #Avilability="ngModel" required>
+
+          <input type="submit" class="aa-browse-btn save-btn" [disabled]="!addProductForm.valid" [ngClass]="{disabled : addProductForm.invalid}"
+            value="Save" >
+          <div></div>
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>test</th>
+      <th>test</th>
+      <th>test</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of items | async">
+    <tr *ngIf="!item.delete">
+      <td scope="row">{{ item.id }}</td>
+      <td><img [src]="item.img" alt=""></td>
+      <td>
+        <input type="button" (click)="getProductById(item.id)" value="click">
+      <td><input type="button" (click)="deleteProduct(item.id)" value="delete"></td>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+<form>
+  <input type="file" (change)="uploadFile($event)" accept=".png, .jpg">
+
+  <div>{{ uploadPercent | async }}</div>
+  <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+  <input type="text" [(ngModel)]="product.img" [ngModelOptions]="{standalone: true}">
+  <input type="text" [(ngModel)]="product.size" [ngModelOptions]="{standalone: true}">
+  <input type="submit" (click)="addProduct()">
+</form> -->
