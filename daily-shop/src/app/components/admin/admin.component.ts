@@ -68,7 +68,7 @@ export class AdminComponent implements OnInit {
     console.log(this.singleProduct);
    }
 
-   uploadFile(event) {
+   async uploadFile(event) {
     const file = event.target.files[0];
     const filePath = 'name-your-file-path-here';
     const fileRef = this.storage.ref(filePath);
@@ -76,10 +76,22 @@ export class AdminComponent implements OnInit {
     // observe percentage changes
     this.uploadPercent = task.percentageChanges();
     // get notified when the download URL is available
-    task.snapshotChanges().pipe(
-        finalize(() => this.downloadURL = fileRef.getDownloadURL() )
-     )
-    .subscribe();
+    await task.snapshotChanges().pipe(
+      finalize(async () => {
+        this.downloadURL = fileRef.getDownloadURL();
+      })
+    ).toPromise().then(res =>  { this.insertImgLink(); });
+  }
+  insertImgLink() {
+    this.downloadURL.subscribe(res => { console.log('thanh' + res); this.product.img = res; });
+  }
+
+  onEdit(product){
+    console.log(product);
+  }
+
+  onAdd(){
+
   }
 
   showEditForm(){
