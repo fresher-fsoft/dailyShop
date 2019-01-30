@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.totalProductsCart = this.cartService.getTotalProductsCart();
-    
-    
   }
 
   
@@ -71,8 +69,6 @@ export class HeaderComponent implements OnInit {
         //alert('login success');
       })
       .catch((err) => {
-        // alert('login fail');
-        // show login error message
         this.toastService.showError("The user credentials were incorrect.");
       }
     );

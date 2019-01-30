@@ -63,18 +63,20 @@ export class CartService {
       for(let i = 0; i < this.productsCart.length; i++){
         if(this.productsCart[i].productId == product.id){
           flag = true;
-          let quantityTmp = this.productsCart[i].quantity + 1;
-          let totalPriceTmp = product.price * quantityTmp;
+          //this.productsCart[i].quantity =  parseInt(this.productsCart[i].quantity) + 1;
+          this.productsCart[i].quantity += 1;
+          // let quantityTmp = this.productsCart[i].quantity + 1;
+          // let totalPriceTmp = product.price * quantityTmp;
 
-          let productTmp = {
-            productId : product.id,
-            title     : product.title,
-            price     : product.price,
-            quantity  : quantityTmp,
-            totalPrice: totalPriceTmp
-          }
-          this.productsCart.splice(i, 1)
-          this.productsCart.push(productTmp)
+          // let productTmp = {
+          //   productId : product.id,
+          //   title     : product.title,
+          //   price     : product.price,
+          //   quantity  : quantityTmp,
+          //   totalPrice: totalPriceTmp
+          // }
+          // this.productsCart.splice(i, 1)
+          // this.productsCart.push(productTmp)
           break;
         }
       }
@@ -88,7 +90,7 @@ export class CartService {
   }
 
   deleteProduct(index: number){
-    this.productsCart.splice(index, 1)
+    this.productsCart.splice(index, 1);
   }
 
   updateProductsCart(index: number, quantity: number){

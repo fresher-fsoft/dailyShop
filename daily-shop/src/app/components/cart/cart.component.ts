@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { CartService } from '../../services/cart.service';
 import { UserService } from '../../services/user.service';
-
 import { Product } from '../../model/product';
 import { ToastService } from '../../services/toast.service';
 declare var $: any;
