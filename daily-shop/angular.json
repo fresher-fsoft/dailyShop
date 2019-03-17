@@ -85,9 +85,15 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/css/font-awesome.css",
+              "src/css/bootstrap.css",         
+              "src/css/styles.css",
+              "./node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/js/jquery.min.js",
+              "src/js/bootstrap.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

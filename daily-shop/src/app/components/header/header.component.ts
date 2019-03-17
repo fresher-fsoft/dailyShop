@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
-import {ToastService} from '../../services/toast.service'
+import {ToastService} from '../../services/toast.service';
 declare var $: any;
 
 @Component({
